@@ -708,3 +708,6 @@ main{overflow-x:hidden;overflow-x:clip}
 /* ===== 入口の円相：スマホで押したとき（.tapped）も朱に（2026-11-14） ===== */
 .enso-gates a{-webkit-tap-highlight-color:transparent}
 .enso-gates a.tapped svg.ens,.enso-gates a:active svg.ens{color:var(--shu);opacity:1;transform:rotate(8deg)}
+
+/* ===== 指導者の写真をカラーに（2026-11-14）。稽古写真と同じく少しだけ落ち着かせる ===== */
+.sensei-img img,[data-tone~="sumi"] .sensei-img img,[data-tone~="kogo"] #instructors .sensei-img img{filter:saturate(.85) brightness(.97) contrast(.97) sepia(.04)}
