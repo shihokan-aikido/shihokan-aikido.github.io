@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多治見の合気道 志鵬館｜見学・体験は火・木・土</title>
+<meta name="description" content="岐阜県多治見市の合気道場 志鵬館。公益財団法人合気会加盟。一般の部は高校生以上、こどもの部は小学1年生〜中学生。稽古は火・木・土。見学・体験は稽古日に。前日までにご連絡ください。">
+<meta name="robots" content="noindex"><!-- 公開直前に外す -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="合気道 志鵬館">
+<meta property="og:title" content="多治見の合気道 志鵬館｜見学・体験は火・木・土">
+<meta property="og:description" content="岐阜県多治見市の合気道場 志鵬館。公益財団法人合気会加盟。一般の部は高校生以上、こどもの部は小学1年生〜中学生。稽古は火・木・土。見学・体験は稽古日に。前日までにご連絡ください。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- 「正勝吾勝」の書体候補。text= で4字とふりがなだけを読み込む（使う書体の分しか通信しない） -->
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Yuji+Mai&family=Yuji+Boku&family=Zen+Antique&family=Shippori+Mincho+B1:wght@500&family=Kaisei+Tokumin:wght@500&text=%E6%AD%A3%E5%8B%9D%E5%90%BE%E5%8B%9D%E3%81%BE%E3%81%95%E3%81%8B%E3%81%A4%E3%81%82%E3%81%8C%E3%81%A4&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<!-- すかしの案は data-sukashi="a"（静）／"b"（流れ）／"c"（一点）。ここ1か所を変えるだけ。
+     試しに見るときは index.html?sukashi=a のようにURLの後ろに付ける
+     円相の色は data-enso="white"（白・いまの設定）／"kin"（金）／"shu"（朱）
+     「正勝吾勝」の書体は data-motto-font="noto"（いまの設定）／"syuku"／"mai"／"boku"／"antique"／"b1"／"kaisei"
+     試しに見るときは index.html?enso=kin&motto=syuku
+     全体の色のトーンは data-tone="base"（いまの設定）／"nijimi"（にじみ）／"kogo"（交互）／"sumi"（墨で統一）／"shizume"（生成りを沈める）
+     空白で重ねられる（例 "nijimi shizume"）。試すときは index.html?tone=nijimi+shizume
+     デザインパターン（すかし×朱の差し色）は data-pattern="none"（いまの設定・パターンなし）／"p1"（落款）／"p2"（朱の一本線）
+     ／"p3"（技の連続）／"p4"（朱の円）／"p5"（帯）。試すときは index.html?pattern=p3
+     2026-11-14：p2（朱の一本線）に決定。p2 の中の「見出しの後ろのすかし」は data-p2-sil="off"（既定）／"on"、
+     金の筆あとは data-p2-kin="off"（既定）／"on"。試すときは ?p2sil=on / ?p2kin=on
+     最初の画面のすかしは data-hero-sil="ho3"（いまの設定・宙で回る受け）／"ho1"／"ho2"／"ho3"（鵬の試作）。試すときは ?herosil=ho1 -->
+<body data-sukashi="c" data-enso="kin" data-motto-font="syuku" data-tone="nijimi shizume" data-pattern="p2" data-p2-sil="off" data-p2-kin="off" data-hero-sil="ho3" data-root="">
+
+<!-- ===== ヘッダー（言語切り替え） ===== -->
+<header class="top" id="top">
+  <a class="mark" href="#hero"><span class="ja">合気道　志鵬館</span><span class="en">AIKIDO SHIHOKAN</span></a>
+  <div class="lang" role="group" aria-label="言語 / Language">
+    <button type="button" data-lang="ja" aria-pressed="true"><span>日本語</span></button>
+    <button type="button" data-lang="en" aria-pressed="false"><span>English</span></button>
+  </div>
+</header>
+
+<!-- ===== 1. 最初の画面 ===== -->
+<section class="hero" id="hero">
+  <svg class="ink enso" viewBox="0 0 1000 1000" aria-hidden="true">
+    <defs>
+      <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="14"/>
+      </filter>
+      <filter id="dry" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9 0.02" numOctaves="2" seed="3" result="s"/>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.5" result="m"/>
+        <feComposite in="SourceGraphic" in2="m" operator="in"/>
+      </filter>
+    </defs>
+    <g fill="currentColor" filter="url(#rough)">
+      <path id="enso-main"/>
+      <path id="enso-dry" filter="url(#dry)" opacity=".7"/>
+    </g>
+  </svg>
+  <svg class="ink sweep" viewBox="0 0 1600 240" aria-hidden="true">
+    <g fill="currentColor" filter="url(#rough)"><path id="sweep-path"/></g>
+  </svg>
+
+  <!-- すかし（最初の画面）：案ごとに1枚だけ表示される -->
+  <img class="wm sk-a" src="assets/sil/sil_aitai_white.png" alt="" aria-hidden="true" loading="lazy">
+  <img class="wm sk-b" src="assets/sil/sil_seiza_white.png" alt="" aria-hidden="true" loading="lazy">
+  <img class="wm sk-c" src="assets/sil/sil_nage2_white.png" alt="" aria-hidden="true" loading="lazy">
+  <!-- 鵬（おおとり）のすかし・試作：data-hero-sil="ho1"〜"ho3" のときだけ1枚出る（既定 nage2 のときは出ない）。AI生成（Canva）の墨絵を白抜きにしたもの -->
+  <img class="wm ho ho1" src="assets/sil/ho1_white.webp" alt="" aria-hidden="true" loading="lazy">
+  <img class="wm ho ho2" src="assets/sil/ho2_white.webp" alt="" aria-hidden="true" loading="lazy">
+  <img class="wm ho ho3" src="assets/sil/ho3_white.webp" alt="" aria-hidden="true" loading="lazy">
+
+  <div class="hero-inner">
+    <div class="motto-wrap fade">
+      <p class="motto"><span class="ruby ja" aria-hidden="true">まさかつ　あがつ</span><span>正勝吾勝</span><span class="p-seal" aria-hidden="true">志鵬</span><img class="shuin" src="assets/img/shuin.png" alt="" aria-hidden="true" width="240" height="240"></p><!-- p-seal は p1 落款のときだけ出る／shuin は志鵬館の朱印（2026-11-14 受け取り） -->
+      <p class="motto-en en" lang="en">Masakatsu Agatsu</p>
+    </div>
+    <div class="fade">
+      <div class="name">
+        <h1><span class="ja">合気道　志鵬館</span><span class="en">AIKIDO SHIHOKAN</span></h1>
+        <p class="roman ja">AIKIDO SHIHOKAN</p>
+      </div>
+      <ul class="three">
+        <li><span class="ja">合気道に、試合はありません。</span><span class="en">There are no matches in aikido.</span></li>
+        <li><span class="ja">勝ちも負けも、競いません。</span><span class="en">No winning, no losing.</span></li>
+        <li><span class="ja">ただ力を抜き、自分と相手が調和する。</span><span class="en">Only letting go of force, in harmony with yourself and your partner.</span></li>
+        <li><span class="ja">和合の道です。</span><span class="en">This is the way of harmony.</span></li>
+      </ul>
+    </div>
+  </div>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</section>
+
+<main>
+<!-- にじみ（data-tone に nijimi があるときだけ出る）：最初の画面の墨が、和紙ににじんで消えていく境目 -->
+<svg class="nijimi" viewBox="0 0 1600 200" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <filter id="bleed" x="-5%" y="-30%" width="110%" height="170%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.11" numOctaves="4" seed="12" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="26"/>
+    </filter>
+    <linearGradient id="bleed-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e0e0d"/>
+      <stop offset=".3" stop-color="#0e0e0d" stop-opacity=".9"/>
+      <stop offset=".55" stop-color="#0e0e0d" stop-opacity=".5"/>
+      <stop offset=".8" stop-color="#0e0e0d" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#0e0e0d" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1600" height="200" fill="url(#bleed-g)"/>
+  <g fill="#0e0e0d" filter="url(#bleed)">
+    <rect x="-80" y="-60" width="1760" height="128" opacity=".35"/>
+    <rect x="-80" y="-60" width="1760" height="104" opacity=".6"/>
+    <rect x="-80" y="-60" width="1760" height="84"/>
+  </g>
+</svg>
+
+<!-- ===== 2. 入口ボタン（筆の円相・2026-11-14 案1に決定。見学・体験はやめて指導者へ） ===== -->
+<nav class="gates enso-gates" aria-label="入口 / Quick links">
+  <a href="#instructors"><svg class="ens" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor" filter="url(#rough)"><path data-enso="1"/></g></svg><span class="fd"><span class="ja">指導者</span><span class="en">Instructors</span></span></a>
+  <a href="#times"><svg class="ens" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor" filter="url(#rough)"><path data-enso="2"/></g></svg><span class="fd"><span class="ja">稽古時間</span><span class="en">Class Times</span></span></a>
+  <a href="#fee"><svg class="ens" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor" filter="url(#rough)"><path data-enso="4"/></g></svg><span class="fd"><span class="ja">料金</span><span class="en">Fees</span></span></a>
+  <a href="#map"><svg class="ens" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor" filter="url(#rough)"><path data-enso="3"/></g></svg><span class="fd"><span class="ja">アクセス</span><span class="en">Access</span></span></a>
+</nav>
+
+<!-- ===== 3. お知らせ（中身は data/news.js） ===== -->
+<section class="sec narrow" id="news">
+  <div class="h2 fade"><h2><span class="ja">お知らせ</span><span class="en">News</span></h2><p class="sub ja">News</p></div>
+  <ul class="news fade" data-news="3"></ul>
+  <a class="more" href="news.html"><span class="ja">一覧を見る　→</span><span class="en">All news　→</span></a>
+</section>
+
+<!-- 金の筆あと（ページで1本だけ）。案Cのときだけ上に金のシルエットが乗る -->
+<div class="kin-wrap" aria-hidden="true">
+  <img class="on-line" src="assets/sil/sil_aitai_kin.png" alt="" loading="lazy">
+  <svg class="kin-line" viewBox="0 0 600 40" aria-hidden="true"><g fill="var(--kin)" filter="url(#rough)"><path id="kin-path"/></g></svg>
+</div>
+
+<!-- p5 帯のときだけ出る：墨地の帯（技の流れ 礼→相対→組む→崩す→投げる→受ける→抑える） -->
+<div class="p-obi" aria-hidden="true">
+  <div class="row">
+    <span class="shu"></span>
+    <img class="seiza" src="assets/sil/sil_seiza_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_aitai_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_kumi_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_kuzushi_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_nage1_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_nage2_kinari.png" alt="" loading="lazy">
+    <img src="assets/sil/sil_osae_kinari.png" alt="" loading="lazy">
+  </div>
+</div>
+
+<!-- 墨の帯（すかし・案3）：筆で引いた墨の中に「相対」の人を白く抜く。形は site.js で作る -->
+<div class="sumi-obi" aria-hidden="true">
+  <svg viewBox="0 0 1600 260" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="obi-blk1"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+      <filter id="obi-ink1" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="4" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="34"/></filter>
+      <filter id="obi-wash1" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+      <mask id="obi-m1" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="260">
+        <rect width="1600" height="260" fill="#fff"/>
+        <image href="assets/sil/sil_aitai_sumi.png" x="1000" y="34" width="250" height="193" filter="url(#obi-blk1)"/>
+      </mask>
+    </defs>
+    <g mask="url(#obi-m1)">
+      <path class="obi-wash" data-obi="1" filter="url(#obi-wash1)"/>
+      <path class="obi-ink" data-obi="1" filter="url(#obi-ink1)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ===== 4. 志鵬館について ===== -->
+<section class="sec" id="about">
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_kumi_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">志鵬館について</span><span class="en">About Shihokan</span></h2><p class="sub ja">About</p></div>
+  <div class="split">
+    <!-- 稽古写真（2026-11-14）：写る人の了解確認済み（No.34、2026-11-14） -->
+    <figure class="ph tall has-photo fade"><img src="assets/img/keiko_01_nage.webp" alt="稽古風景。神棚と掛け軸の前で、袴の人が白い道着の相手を投げているところ" width="1139" height="1381" loading="lazy" decoding="async"></figure>
+    <div class="prose fade">
+      <div class="ja">
+        <p>志鵬館は、多治見市にある会員制の合気道場です。<br>令和4年4月に、館長の松井慶康が開きました。<br>公益財団法人合気会、岐阜県合気道連盟、多治見市合気道協会に加盟しています。</p>
+        <p>稽古するのは、植芝盛平開祖がはじめた合気道です。<br>二代 吉祥丸道主が世界に広め、三代 守央道主が受け継いでいます。</p>
+        <h4>「志鵬館」という名前</h4>
+        <p>「鵬」は、空高く羽ばたく大きな鳥。高い空から遠くを見渡すように、広い視野と高い徳を持ち、先を見通せる人を育てたい。その志を「志鵬館」の名に込めています。</p>
+      </div>
+      <div class="en" lang="en">
+        <p>Shihokan is a members' aikido dojo in Tajimi, Gifu.<br>Our chief instructor, Yoshiyasu Matsui, opened the dojo in April 2022.<br>We belong to the Aikikai Foundation, the Gifu Prefecture Aikido Federation, and the Tajimi City Aikido Association.</p>
+        <p>We practice the aikido founded by Morihei Ueshiba. The second Doshu, Kisshomaru Ueshiba, spread it around the world, and the third Doshu, Moriteru Ueshiba, carries it on today.</p>
+        <h4>The name "Shihokan"</h4>
+        <p>The character 鵬 (<i>ho</i>) is a great bird that soars high in the sky. Just as it looks far across the land from high above, we hope to raise people with a broad view and high virtue, who can see what lies ahead. That wish is held in the name Shihokan.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 合気道とは -->
+  <div class="sec narrow inner" id="aikido">
+    <!-- すかし（案2）：合気道とは の後ろに、宙で回る受けを1体だけ大きくごく薄く -->
+    <img class="wm-big" src="assets/sil/sil_nage2_sumi.png" alt="" aria-hidden="true" loading="lazy" data-drift="0,-60">
+    <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_nage2_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">合気道とは</span><span class="en">What is Aikido?</span></h2><p class="sub ja">What is Aikido?</p></div>
+    <div class="prose center fade">
+      <div class="ja">
+        <p>合気道は世界140の国や地域で愛されています。<br>試合はありません。<br>勝ち負けを争うのではなく、<br>自分の生き方、あり方を問い続ける武道です。</p>
+        <p>開祖がよく書き残した言葉に「正勝吾勝（まさかつ あがつ）」があります。<br>館長は、これを「正しく勝つ、吾に勝つ」という意味で使っています。<br>体の大きな人、力の強い人を相手にしたとき、どう崩すか。<br>自分の頭で考えて、工夫する。<br>すぐにはできなくても、やってみる。それを大切にしています。</p>
+      </div>
+      <div class="en" lang="en">
+        <p>Aikido is loved in 140 countries and regions around the world.<br>There are no competitions.<br>Instead of fighting to win, you keep asking how you want to live, and who you want to be.</p>
+        <p>The Founder often wrote the words <i>Masakatsu Agatsu</i>.<br>Our chief instructor takes them to mean "win in the right way, and win over yourself."<br>When your partner is bigger or stronger than you, how do you unbalance them?<br>You think it through and try new ways.<br>Even if it doesn't work at first, you keep trying.</p>
+      </div>
+    </div>
+
+    <!-- 合気は愛なり -->
+    <h3 class="fade" id="aiki-love" style="text-align:center"><span class="ja">合気は愛なり</span><span class="en">Aiki is Love</span><br><span class="reading"><span class="ja">稽古で大切にしていること</span><span class="en">How We Train</span></span></h3>
+    <!-- 稽古写真（2026-11-14）：写る人の了解確認済み（No.34、2026-11-14） -->
+    <figure class="ph wide has-photo is-tate fade" style="margin-bottom:28px"><img src="assets/img/keiko_02_nage_matsui.webp" alt="館長 松井慶康が相手を投げ、受けの人が宙で回って受け身をとっているところ" width="1166" height="1349" loading="lazy" decoding="async"></figure>
+    <div class="prose fade">
+      <p class="ja">開祖がたどり着いた境地が「合気は愛なり」でした。<br>志鵬館では、この言葉を稽古のやり方で表しています。</p>
+      <p class="en" lang="en">The Founder's final understanding was: <i>Aiki is love.</i><br>At Shihokan, we put these words into practice in the way we train.</p>
+    </div>
+    <ol class="rules fade">
+      <li><span class="ja"><b>上の人が、導く。</b>経験を積んだ人は、相手が正しく動けるように導きます。口で言うのではなく、受け身をとって、体で感じてもらいます。</span><span class="en" lang="en"><b>Seniors lead.</b>Experienced members guide their partners so they can move correctly — not by talking, but by taking the fall and letting them feel it.</span></li>
+      <li><span class="ja"><b>ケガをさせない。</b>稽古で相手にケガをさせるのは、恥ずかしいことです。技は相手のレベルに合わせて掛けます。武器の技は、安全な練習用の道具で稽古します。</span><span class="en" lang="en"><b>No one gets hurt.</b>Injuring a partner is something to be ashamed of. Techniques are matched to your partner's level, and weapons practice uses safe training tools.</span></li>
+      <li><span class="ja"><b>教えることは、学ぶこと。</b>相手に気づいてもらえるよう導くと、自分も伸びていきます。</span><span class="en" lang="en"><b>To teach is to learn.</b>When you help a partner notice something, you grow too.</span></li>
+    </ol>
+
+    <!-- 体のこと -->
+    <h3 class="fade" id="body"><span class="ja">体のこと</span><span class="en">Aikido and Your Body</span></h3>
+    <div class="prose fade">
+      <div class="ja">
+        <p>技は、左右の手を交互に使って掛け合います。表の技と裏の技も、交互に稽古します。<br>息を止めず、呼吸と一緒に力を出します。<br>関節の技は、曲がる方向に、ゆっくり極めます。<br>続けるうちに、肩まわりが楽になったと感じる方もいます。</p>
+        <p>ただ、すぐに変わるものではありません。<br>館長は通信にこう書いています。</p>
+        <blockquote class="say"><p>「このような変化は数年ではできません。10年20年経って作られ自身も気づいてきます。」</p></blockquote>
+      </div>
+      <div class="en" lang="en">
+        <p>You practice each technique with both hands, left and right, and in both the front (<i>omote</i>) and back (<i>ura</i>) forms.<br>You don't hold your breath — you move with it.<br>Joint techniques are applied slowly, only in the direction the joint naturally bends.<br>Some members say their shoulders feel easier as they keep training.</p>
+        <p>But this doesn't happen quickly.<br>As our chief instructor wrote:</p>
+        <blockquote class="say"><p>"These changes don't come in a few years. After ten or twenty years, you begin to notice them yourself."</p></blockquote>
+      </div>
+    </div>
+
+    <!-- 守命術 -->
+    <h3 class="fade" id="shumei"><span class="ja">特別稽古「<ruby>守命術<rt>しゅめいじゅつ</rt></ruby>」</span><span class="en">Special Practice: Shumeijutsu (Self-Defense)</span></h3>
+    <div class="prose fade">
+      <div class="ja">
+        <p>志鵬館では、合気道の稽古とは別に、護身術を研究しています。<br>道着と袴を脱いで行う稽古で、「守命術（しゅめいじゅつ）」と呼んでいます。<br>希望する方で、不定期に行っています。</p>
+      </div>
+      <div class="en" lang="en">
+        <p>Apart from aikido classes, we also study self-defense.<br>We call it <i>Shumeijutsu</i>, and practice it in everyday clothes, without the dogi and hakama.<br>It is held from time to time, for members who wish to join.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- p5 帯のときだけ出る：礼の帯 -->
+<div class="p-obi" aria-hidden="true">
+  <img class="one" src="assets/sil/sil_seiza_kinari.png" alt="" loading="lazy">
+  <span class="brush"></span>
+</div>
+
+<!-- 墨の帯（すかし・案3）：筆で引いた墨の中に「投げ」の人を白く抜く。形は site.js で作る -->
+<div class="sumi-obi rev" aria-hidden="true">
+  <svg viewBox="0 0 1600 260" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="obi-blk2"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+      <filter id="obi-ink2" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="4" seed="14" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="34"/></filter>
+      <filter id="obi-wash2" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+      <mask id="obi-m2" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="260">
+        <rect width="1600" height="260" fill="#fff"/>
+        <image href="assets/sil/sil_nage1_sumi.png" x="420" y="33" width="176" height="194" filter="url(#obi-blk2)" transform="translate(1016 0) scale(-1 1)"/>
+      </mask>
+    </defs>
+    <g mask="url(#obi-m2)">
+      <path class="obi-wash" data-obi="2" filter="url(#obi-wash2)"/>
+      <path class="obi-ink" data-obi="2" filter="url(#obi-ink2)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ===== 5. 指導者 ===== -->
+<section class="sec" id="instructors">
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_aitai_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">指導者</span><span class="en">Instructors</span></h2><p class="sub ja">Instructors</p></div>
+  <div class="sensei-list">
+    <article class="sensei-row is-main fade">
+      <div class="sensei-img"><img src="assets/img/shidosha_A_yori.jpg" alt="館長 松井慶康" loading="lazy" width="592" height="740"></div>
+      <div class="sensei-body">
+        <p class="role"><span class="ja">館長</span><span class="en">Chief Instructor</span></p>
+        <p class="pname"><span class="ja">松井 慶康 <span class="reading">まつい よしやす</span></span><span class="en">Yoshiyasu Matsui</span></p>
+        <p class="rank"><span class="ja">合気道五段位　杖道初段　弓道初段　居合道初段</span><span class="en">Aikido 5th Dan / Jodo, Kyudo and Iaido 1st Dan</span></p>
+        <div class="ja">
+          <p>昭和47年、広島大学で合気道をはじめました。<br>会社勤めのあいだ、稽古できなかった数年をのぞいて、50年近く続けています。<br>令和4年4月、多治見市に志鵬館を開きました。<br>岐阜県合気道連盟の理事、多治見市合気道協会の会長をつとめています。</p>
+          <blockquote class="say"><p>初めての方には、原理原則からお教えします。合気道を好きになっていただき、共に合気の道を探求していきましょう。</p></blockquote>
+        </div>
+        <div class="en" lang="en">
+          <p>Matsui Sensei began aikido in 1972 at Hiroshima University. Apart from a few years when work kept him away, he has trained for nearly 50 years. He opened Shihokan in Tajimi in April 2022. He serves as a director of the Gifu Prefecture Aikido Federation and as president of the Tajimi City Aikido Association.</p>
+          <blockquote class="say"><p>"For beginners, I teach from the basic principles. I hope you come to love aikido, and that we can explore the way of aiki together."</p></blockquote>
+        </div>
+      </div>
+    </article>
+    <article class="sensei-row is-sub fade">
+      <div class="sensei-img"><img src="assets/img/shidosha_B_yori.jpg" alt="指導員 平田裕二郎" loading="lazy" width="592" height="740"></div>
+      <div class="sensei-body">
+        <p class="role"><span class="ja">指導員</span><span class="en">Instructor</span></p>
+        <p class="pname"><span class="ja">平田 裕二郎 <span class="reading">ひらた ゆうじろう</span></span><span class="en">Yujiro Hirata</span></p>
+        <p class="rank"><span class="ja">合気道二段</span><span class="en">Aikido 2nd Dan</span></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 6. 入会案内 ===== -->
+<section class="sec narrow" id="join">
+  <!-- すかし（案4）：鵬（おおとり）を小さく薄く。AI生成（Canva）の墨絵を白抜きにしたものを、CSSで墨色にして使う -->
+  <img class="wm-ho ho-join" src="assets/sil/ho2_white.webp" alt="" aria-hidden="true" loading="lazy" data-drift="60,70">
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_kuzushi_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">入会案内</span><span class="en">Joining</span></h2><p class="sub ja">Joining</p></div>
+
+  <h3 class="fade" style="margin-top:0"><span class="ja">対象</span><span class="en">Who can join</span></h3>
+  <table class="tbl fade">
+    <tbody>
+      <tr><th><span class="ja">一般の部</span><span class="en">Adults</span></th><td><span class="ja">高校生以上</span><span class="en">High school students and up</span></td></tr>
+      <tr><th><span class="ja">こどもの部<br>（わかば合気道クラブ）</span><span class="en">Children's class<br>(Wakaba Aikido Club)</span></th><td><span class="ja">小学1年生〜中学生</span><span class="en">Grades 1–9</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="fade"><span class="ja">こどもの部について</span><span class="en">Children's class</span></h4>
+  <div class="prose fade">
+    <p class="ja">小学1年生から中学生までは、志鵬館の「こどもの部（わかば合気道クラブ）」で稽古します。<br>火曜と木曜の17:00〜18:00です。</p>
+    <p class="en" lang="en">Children from grade 1 to grade 9 train in Shihokan's children's class, Wakaba Aikido Club, on Tuesdays and Thursdays, 17:00–18:00.</p>
+  </div>
+  <figure class="ph fade"><span class="tag"><span class="ja">写真：こどもの部の稽古風景（撮影予定）</span><span class="en">Photo: children's class (coming soon)</span></span></figure>
+  <p class="note-small"><span class="kk"><span class="ja">写る人・こどもの顔出しの了解（回答No.34 保留中）</span><span class="en">Photo consent</span></span></p>
+
+  <h3 class="fade" id="times"><span class="ja">稽古の時間（2024年5月から）</span><span class="en">Class Times (from May 2024)</span></h3>
+  <table class="tbl fade">
+    <thead><tr><th><span class="ja">曜日</span><span class="en">Day</span></th><th><span class="ja">時間</span><span class="en">Time</span></th><th><span class="ja">クラス</span><span class="en">Class</span></th></tr></thead>
+    <tbody>
+      <tr><th><span class="ja">火・木</span><span class="en">Tue / Thu</span></th><td class="time"><span class="ja">17:00〜18:00</span><span class="en">17:00–18:00</span></td><td><span class="ja">初心者・こどもの部（わかば合気道クラブ）</span><span class="en">Beginners &amp; Children's class (Wakaba Aikido Club)</span></td></tr>
+      <tr><th><span class="ja">火・木</span><span class="en">Tue / Thu</span></th><td class="time"><span class="ja">18:15〜19:15</span><span class="en">18:15–19:15</span></td><td><span class="ja">一般の部</span><span class="en">Adults</span></td></tr>
+      <tr><th><span class="ja">土</span><span class="en">Sat</span></th><td class="time"><span class="ja">10:00〜11:00</span><span class="en">10:00–11:00</span></td><td><span class="ja">一般の部</span><span class="en">Adults</span></td></tr>
+    </tbody>
+  </table>
+  <p class="note-small"><span class="ja">祝日などの休みは「お知らせ」でお知らせします。</span><span class="en">Holiday closures are posted in News.</span></p>
+  <p class="note-small"><span class="ja">17:00の回は、大人の初心者の方もどうぞ。</span><span class="en">Adult beginners are also welcome in the 17:00 class.</span></p>
+
+  <h3 class="fade" id="fee"><span class="ja">会費（毎月）</span><span class="en">Monthly Fees</span></h3>
+  <table class="tbl fee fade">
+    <thead><tr><th></th><th><span class="ja">一般（高校生以上）</span><span class="en">Adults</span></th><th><span class="ja">小中学生</span><span class="en">Children (grades 1–9)</span></th></tr></thead>
+    <tbody>
+      <tr><th><span class="ja">週1日コース</span><span class="en">Once a week</span></th><td><span class="ja">月4,000円</span><span class="en">¥4,000 / month</span></td><td><span class="ja">月2,000円</span><span class="en">¥2,000 / month</span></td></tr>
+      <tr><th><span class="ja">週2日以上コース</span><span class="en">Twice a week or more</span></th><td><span class="ja">月6,000円</span><span class="en">¥6,000 / month</span></td><td><span class="ja">月3,000円</span><span class="en">¥3,000 / month</span></td></tr>
+    </tbody>
+  </table>
+  <h4 class="fade"><span class="ja">ほかにかかるもの</span><span class="en">Other costs</span></h4>
+  <ul class="costs fade">
+    <li><span class="ja">合気会の入会費：8,500円（小中学生も同じ。はじめの1回だけ。年会費はありません）</span><span class="en">Aikikai registration fee: ¥8,500, also for children (one time only — no annual fee)</span></li>
+    <li><span class="ja">道着代：別途</span><span class="en">Uniform (dogi): separate cost</span></li>
+    <li><span class="ja">昇級・昇段審査の審査料：審査を受けるときに別途</span><span class="en">Grading exam fee: separate cost, only when you take an exam</span></li>
+    <li><span class="ja">スポーツ安全保険料：別途</span><span class="en">Sports safety insurance: separate cost</span></li>
+  </ul>
+
+  <h3 class="fade"><span class="ja">昇級・昇段審査</span><span class="en">Grading</span></h3>
+  <p class="prose fade"><span class="ja">年に2回ほどあります。</span><span class="en" lang="en">Grading examinations are held about twice a year.</span></p>
+
+  <h3 class="fade" id="trial"><span class="ja">見学・体験</span><span class="en">Visit &amp; Try a Class</span></h3>
+  <!-- 稽古写真（2026-11-14）：写る人の了解確認済み（No.34、2026-11-14） -->
+  <figure class="ph wide has-photo fade" style="margin-bottom:28px"><img src="assets/img/keiko_03_rei_mono.webp" alt="「合氣道」の掛け軸の前で、正座で礼をする道場生と、立って礼を返す館長 松井慶康" width="793" height="579" loading="lazy" decoding="async"></figure>
+  <ol class="steps fade">
+    <li><span class="ja">火・木・土のどの稽古日でも、いつもの稽古時間に見学・体験できます。</span><span class="en">You can watch or try a class on any practice day — Tuesday, Thursday or Saturday — at the usual class time.</span></li>
+    <li><span class="ja">遅くても前日までに、メールか電話でご連絡ください（連絡先は下の「道場のご案内」）。</span><span class="en">Please contact us by email or phone by the day before (see "Dojo Information" below).</span></li>
+    <li><span class="ja">動きやすい服装でお越しください。タオルと飲み物をお持ちください。</span><span class="en">Wear clothes you can move in. Please bring a towel and something to drink.</span></li>
+    <li><span class="ja">体験は無料です。原則1回までです。</span><span class="en">The trial class is free. One trial per person, as a rule.</span></li>
+    <li><span class="ja">入会の申込書は、体験のときにお渡しします。</span><span class="en">We'll give you an application form at your trial class.</span></li>
+  </ol>
+  <a class="btn" href="#contact"><span class="ja">見学・体験の連絡先を見る</span><span class="en">How to contact us</span></a>
+</section>
+
+<!-- ===== 7. 道場生の声（届くまでは公開前に外すか、集合写真だけにする） ===== -->
+<section class="sec narrow" id="voices">
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_nage1_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">道場生の声</span><span class="en">From Our Members</span></h2><p class="sub ja">Voices</p></div>
+  <figure class="ph band fade"><span class="tag"><span class="ja">写真：集合写真（撮影予定）</span><span class="en">Photo: group photo (coming soon)</span></span></figure>
+  <div class="voices fade">
+    <div class="voice"><span class="kk"><span class="ja">〇〇代・男性／女性　後日受け取り</span><span class="en">Member's voice (coming)</span></span></div>
+    <div class="voice"><span class="kk"><span class="ja">〇〇代・男性／女性　後日受け取り</span><span class="en">Member's voice (coming)</span></span></div>
+  </div>
+</section>
+
+<!-- ===== 8. よくある質問 ===== -->
+<section class="sec narrow" id="faq">
+  <img class="wm-ho ho-faq" src="assets/sil/ho2_white.webp" alt="" aria-hidden="true" loading="lazy" data-drift="40,50"><!-- すかし（案4）：入会案内の鵬と左右を逆に、少し小さく -->
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_osae_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">よくある質問</span><span class="en">FAQ</span></h2><p class="sub ja">FAQ</p></div>
+  <div class="faq fade">
+    <details>
+      <summary><span class="ja">見学だけでもいいですか。</span><span class="en">Can I just come and watch?</span></summary>
+      <div class="a"><span class="ja">はい。火・木・土の稽古日に、いつもの稽古時間に見学できます。遅くても前日までにご連絡ください。</span><span class="en">Yes. You can watch on any practice day at the usual time. Please contact us by the day before.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">体験のとき、何を持っていけばいいですか。</span><span class="en">What should I bring to a trial class?</span></summary>
+      <div class="a"><span class="ja">動きやすい服装で来てください。タオルと飲み物があれば大丈夫です。</span><span class="en">Just wear clothes you can move in, and bring a towel and something to drink.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">体験は何回できますか。</span><span class="en">How many trial classes can I take?</span></summary>
+      <div class="a"><span class="ja">原則1回までです。</span><span class="en">One, as a rule.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">運動の経験がなくても、ついていけますか。</span><span class="en">I have no sports background. Can I keep up?</span></summary>
+      <div class="a"><span class="ja">館長は「初めての方には、原理原則からお教えします。」と話しています。まずは見学で、稽古の様子を見てみてください。</span><span class="en">Our chief instructor says, "For beginners, I teach from the basic principles." Why not come and watch a class first?</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">ケガが心配です。</span><span class="en">I'm worried about getting injured.</span></summary>
+      <div class="a"><span class="ja">稽古で相手にケガをさせるのは、恥ずかしいことだと考えています。技は相手のレベルに合わせて掛けます。武器の技も、安全な練習用の道具を使います。</span><span class="en">At our dojo, injuring a partner is something to be ashamed of. Techniques are matched to your partner's level, and weapons practice uses safe training tools.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">子どもも習えますか。親子で一緒に稽古できますか。</span><span class="en">Can children join? Can I train with my child?</span></summary>
+      <div class="a"><span class="ja">小学1年生から中学生までは、こどもの部（わかば合気道クラブ）で、火・木の17:00〜18:00に稽古します。土曜は一般の部だけで、親子での参加はしていません。</span><span class="en">Children from grade 1 to grade 9 train in the children's class (Wakaba Aikido Club) on Tuesdays and Thursdays, 17:00–18:00. Saturday classes are for adults only, so parents and children don't train together.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">会費のほかに、何にお金がかかりますか。</span><span class="en">Are there other costs besides the monthly fee?</span></summary>
+      <div class="a"><span class="ja">合気会の入会費8,500円（はじめの1回だけ）、道着代、審査を受けるときの審査料、スポーツ安全保険料です。年会費と家族割はありません。</span><span class="en">The Aikikai registration fee of ¥8,500 (one time only), a uniform, an exam fee when you take a grading, and sports safety insurance. There is no annual fee and no family discount.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">段や級はとれますか。</span><span class="en">Can I take grading exams?</span></summary>
+      <div class="a"><span class="ja">昇級・昇段の審査が、年に2回ほどあります。</span><span class="en">Yes. Examinations are held about twice a year.</span></div>
+    </details>
+    <details>
+      <summary><span class="ja">英語で教わることはできますか。</span><span class="en">Is instruction available in English?</span></summary>
+      <div class="a"><span class="ja">英語を話せる指導者はいません。稽古は日本語です。ご連絡は、やさしい英語か日本語でお願いします。翻訳ツールを使ってお返事します。</span><span class="en">Classes are taught in Japanese. Please contact us in simple English or Japanese. We reply with the help of a translation tool.</span></div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== 9. 合気道倫理憲章 ===== -->
+<section class="sec narrow" id="ethics">
+  <div class="h2 fade"><h2><span class="ja">合気道倫理憲章</span><span class="en">Aikido Ethics Charter</span></h2><p class="sub ja">Aikido Ethics Charter</p></div>
+  <div class="ja fade">
+    <div class="box"><!-- 合気会のページ（https://aikikai.or.jp/ethics/）の表記に合わせた（2026-11-14） -->
+      <p><span class="num">一</span>　合気道はお互いに切磋琢磨し合って稽古を積み重ね、心身の錬成を図る</p>
+      <p><span class="num">二</span>　日々の稽古を通じて相手を理解し、尊重する心を養う。以って至誠の人、調和の取れた真心の人となる。</p>
+      <p><span class="num">三</span>　合気道の精神　“合気とは「愛」であり、あらゆるものを愛護することを自己の使命として完遂するのが真の武の道である。合気とは自己に打克ち、敵の戦う心をなくす、いや、敵そのものをなくしてしまう絶対的な自己完成への道なのである”</p>
+      <p>（植芝盛平翁「合気道」より抜粋）</p>
+      <p class="sign" style="margin-top:1.8em">以上、合気道倫理憲章を制定する<br>平成27年1月5日<br>公益財団法人　合気会　理事長　植芝　守央</p>
+    </div>
+    <p class="more"><a class="ext" href="https://aikikai.or.jp/ethics/" target="_blank" rel="noopener">合気会「合気道倫理憲章」</a></p>
+  </div>
+  <div class="en fade" lang="en">
+    <p class="prose">The Aikido Ethics Charter was established by the Aikikai Foundation in 2015. Read it on the Aikikai website:</p>
+    <p><a class="ext" href="https://aikikai.or.jp/eng/ethics/" target="_blank" rel="noopener">Aikikai — Ethic Charter of Aikido</a></p>
+  </div>
+</section>
+
+<!-- ===== 10. 志鵬館通信（中身は data/tsushin.js） ===== -->
+<section class="sec narrow" id="tsushin">
+  <div class="h2 fade"><h2><span class="ja">志鵬館通信</span><span class="en">Shihokan Newsletter</span></h2><p class="sub ja">Newsletter</p></div>
+  <div class="prose fade">
+    <p class="ja">館長が、会員とご家族に向けて書いている通信です。<br>合気道の考え方や、稽古のねらいを書いています。全文を読めます。</p>
+    <p class="en" lang="en">A newsletter written by our chief instructor for members and their families, about the ideas behind aikido and our training. (Japanese only)</p>
+  </div>
+  <ul class="ts-list fade" data-tsushin="3"></ul>
+  <a class="more" href="tsushin/index.html"><span class="ja">通信をすべて見る　→</span><span class="en">Read all issues　→</span></a>
+</section>
+
+<!-- 墨の帯（すかし・案3）：筆で引いた墨の中に「礼」の人を白く抜く。形は site.js で作る -->
+<div class="sumi-obi" aria-hidden="true">
+  <svg viewBox="0 0 1600 260" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <filter id="obi-blk3"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+      <filter id="obi-ink3" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="4" seed="21" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="34"/></filter>
+      <filter id="obi-wash3" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+      <mask id="obi-m3" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="260">
+        <rect width="1600" height="260" fill="#fff"/>
+        <image href="assets/sil/sil_seiza_sumi.png" x="700" y="58" width="230" height="143" filter="url(#obi-blk3)"/>
+      </mask>
+    </defs>
+    <g mask="url(#obi-m3)">
+      <path class="obi-wash" data-obi="3" filter="url(#obi-wash3)"/>
+      <path class="obi-ink" data-obi="3" filter="url(#obi-ink3)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ===== 11. 道場のご案内 ===== -->
+<section class="sec narrow" id="info">
+  <div class="h2 fade"><img class="wm-h" src="assets/sil/sil_seiza_sumi.png" alt="" aria-hidden="true" loading="lazy"><h2><span class="ja">道場のご案内</span><span class="en">Dojo Information</span></h2><p class="sub ja">Dojo Information</p></div>
+  <table class="tbl fade">
+    <tbody>
+      <tr><th><span class="ja">道場名</span><span class="en">Name</span></th><td><span class="ja">合気道 志鵬館</span><span class="en">Aikido Shihokan</span></td></tr>
+      <tr><th><span class="ja">住所</span><span class="en">Address</span></th><td><span class="ja">〒507-0064 岐阜県多治見市<ruby>北丘町<rt>きたおかちょう</rt></ruby>1-44</span><span class="en">1-44 Kitaoka-cho, Tajimi, Gifu 507-0064</span><br><span class="ja">「志鵬館」と書かれた建物です。</span><span class="en">Look for the building marked “志鵬館” (Shihokan).</span></td></tr>
+      <tr><th><span class="ja">駐車場</span><span class="en">Parking</span></th><td><span class="ja">7台</span><span class="en">Parking for 7 cars</span></td></tr>
+      <tr><th><span class="ja">稽古時間</span><span class="en">Classes</span></th><td><span class="ja">火・木 17:00〜18:00（初心者・こどもの部）<br>火・木 18:15〜19:15（一般の部）<br>土 10:00〜11:00（一般の部）</span><span class="en">Tue/Thu 17:00–18:00 (Beginners &amp; Children)<br>Tue/Thu 18:15–19:15 (Adults)<br>Sat 10:00–11:00 (Adults)</span></td></tr>
+      <tr id="contact"><th><span class="ja">メール</span><span class="en">Email</span></th><td><a href="mailto:yoshiyasu.matsui@hotmail.co.jp">yoshiyasu.matsui@hotmail.co.jp</a><span class="ja"><br>（館長 松井）</span></td></tr>
+      <tr><th><span class="ja">電話</span><span class="en">Phone</span></th><td><span class="ja"><a href="tel:080-9545-8728">080-9545-8728</a><br>（館長 松井）</span><span class="en"><a href="tel:+818095458728">+81-80-9545-8728</a></span></td></tr>
+    </tbody>
+  </table>
+  <div class="prose fade" style="margin-top:24px">
+    <p class="ja">見学・体験は、遅くても前日までにメールか電話でご連絡ください。</p>
+    <p class="en" lang="en">To watch or try a class, please contact us by email or phone by the day before.<br>Please contact us in simple English or Japanese. We reply with the help of a translation tool.</p>
+  </div>
+
+  <div class="map fade" id="map">
+    <iframe title="志鵬館の地図（岐阜県多治見市北丘町1-44） / Map" src="https://www.google.com/maps?q=%E5%B2%90%E9%98%9C%E7%9C%8C%E5%A4%9A%E6%B2%BB%E8%A6%8B%E5%B8%82%E5%8C%97%E4%B8%98%E7%94%BA1-44&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+  <!-- Googleマップに「合気道志鵬館」を登録済み（2026-11-14）。検索に出るようになったら、地図を道場名のピンに差し替える -->
+  <a class="map-link ext" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B2%90%E9%98%9C%E7%9C%8C%E5%A4%9A%E6%B2%BB%E8%A6%8B%E5%B8%82%E5%8C%97%E4%B8%98%E7%94%BA1-44" target="_blank" rel="noopener"><span class="ja">Googleマップで開く</span><span class="en">Open in Google Maps</span></a>
+
+  <figure class="ph fade" style="margin-top:40px"><span class="tag"><span class="ja">写真：道場の外観・入口（撮影予定）</span><span class="en">Photo: dojo entrance (coming soon)</span></span></figure>
+</section>
+
+</main>
+
+<!-- ===== 12. フッター ===== -->
+<footer>
+  <img class="foot-rei" src="assets/sil/sil_seiza_white.png" alt="" aria-hidden="true" loading="lazy">
+  <p class="fname"><span class="ja">合気道　志鵬館</span><span class="en">AIKIDO SHIHOKAN</span></p>
+  <span class="p-seal" aria-hidden="true">志鵬館</span><!-- p1 落款のときだけ出る -->
+  <p><span class="ja">〒507-0064 岐阜県多治見市北丘町1-44</span><span class="en">1-44 Kitaoka-cho, Tajimi, Gifu 507-0064</span></p>
+  <div class="orgs">
+    <span class="ja">加盟団体：</span><span class="en">Member of:</span>
+    <a class="ext" href="https://aikikai.or.jp/" target="_blank" rel="noopener"><span class="ja">公益財団法人合気会</span><span class="en">Aikikai Foundation</span></a>
+    <a class="org ext" href="https://gifukenaikidorenmei.jimdofree.com/" target="_blank" rel="noopener"><span class="ja">岐阜県合気道連盟</span><span class="en">Gifu Prefecture Aikido Federation</span></a>
+    <span class="org"><span class="ja">多治見市合気道協会</span><span class="en">Tajimi City Aikido Association</span></span>
+  </div>
+  <p class="fnav">
+    <a href="news.html"><span class="ja">お知らせ</span><span class="en">News</span></a>
+    <a href="tsushin/index.html"><span class="ja">志鵬館通信</span><span class="en">Newsletter</span></a>
+    <button type="button" class="fl" data-lang-switch><span class="ja">English</span><span class="en">日本語</span></button>
+  </p>
+  <p class="copy"><span class="ja">© 合気道 志鵬館</span><span class="en">© Aikido Shihokan</span></p>
+</footer>
+
+<script src="data/news.js"></script>
+<script src="data/tsushin.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

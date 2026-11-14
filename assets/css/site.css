@@ -1,0 +1,706 @@
+/* =========================================================
+   合気道 志鵬館  共通スタイル
+   色：墨・和紙色・朱の丸・金の筆あと
+   ========================================================= */
+:root{
+  --sumi:#232323;
+  --sumi-soft:#55524c;
+  --kinari:#f4efe4;
+  --kinari-deep:#ebe4d4;
+  --line:#d8cfbd;
+  --shu:#c8442c;
+  --kin:#b08a3e;
+  --kuro:#0e0e0d;
+  --kk:#d9735a;
+  --gutter:20px;
+  --max:960px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  color:var(--sumi);
+  background-color:var(--kinari);
+  /* 地紋：青海波（インラインSVG） */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='%23f4efe4' stroke='%23a89a7e' stroke-opacity='.1' stroke-width='.7'%3E%3Cg id='w'%3E%3Ccircle r='23'/%3E%3Ccircle r='17'/%3E%3Ccircle r='11'/%3E%3Ccircle r='5'/%3E%3C/g%3E%3Cuse href='%23w' x='0' y='0'/%3E%3Cuse href='%23w' x='48' y='0'/%3E%3Cuse href='%23w' x='24' y='12'/%3E%3Cuse href='%23w' x='0' y='24'/%3E%3Cuse href='%23w' x='48' y='24'/%3E%3Cuse href='%23w' x='24' y='36'/%3E%3C/g%3E%3C/svg%3E");
+  line-height:2;
+  font-weight:400;
+  letter-spacing:.04em;
+  overflow-x:hidden;
+  overflow-wrap:anywhere;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--shu);outline-offset:3px}
+
+/* ---------- 言語切り替え ---------- */
+body.en .ja{display:none!important}
+body:not(.en) .en{display:none!important}
+
+/* ---------- 要確認の札（点線枠） ---------- */
+.kk{
+  display:inline;
+  border:1px dashed var(--kk);
+  background:rgba(217,115,90,.06);
+  color:#9a4a36;
+  padding:.05em .4em;
+  border-radius:2px;
+  font-size:.86em;
+  line-height:1.9;
+  letter-spacing:.02em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.kk::before{
+  content:"要確認";
+  font-size:.72em;
+  letter-spacing:.08em;
+  color:#fff;
+  background:var(--kk);
+  padding:.05em .45em;
+  margin-right:.45em;
+  border-radius:2px;
+  vertical-align:.12em;
+}
+body.en .kk::before{content:"TBC"}
+.kk.block{display:block;padding:.6em .8em;margin:.8em 0}
+.hero .kk,footer .kk{color:#f0b9a8;background:rgba(217,115,90,.12)}
+
+/* ---------- ヘッダー ---------- */
+.top{
+  position:fixed;inset:0 0 auto 0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px var(--gutter);
+  color:#eee;
+  transition:background .4s,color .4s;
+}
+.top.solid,body.sub .top{background:rgba(244,239,228,.95);color:var(--sumi);box-shadow:0 1px 0 var(--line)}
+.top .mark{font-size:14px;letter-spacing:.2em;text-decoration:none;opacity:0;transition:opacity .4s;white-space:nowrap}
+.top.solid .mark,body.sub .top .mark{opacity:1}
+.top-right{display:flex;align-items:center;gap:14px}
+.top-nav{display:flex;gap:14px;font-size:13px;letter-spacing:.08em}
+.top-nav a{text-decoration:none;white-space:nowrap}
+.top-nav a:hover{text-decoration:underline}
+@media (max-width:519px){.top-nav{display:none}}
+.lang{display:flex;font-size:13px;letter-spacing:.06em;border:1px solid currentColor;border-radius:999px;overflow:hidden;flex-shrink:0}
+.lang button{font:inherit;color:inherit;background:none;border:0;padding:6px 12px;cursor:pointer;min-height:32px}
+.lang button[aria-pressed="true"]{background:currentColor}
+.lang button[aria-pressed="true"] span{color:var(--kuro)}
+.top.solid .lang button[aria-pressed="true"] span,body.sub .lang button[aria-pressed="true"] span{color:var(--kinari)}
+
+/* ---------- 最初の画面 ---------- */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  background:var(--kuro);color:#f2f0ea;
+  overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:90px var(--gutter) 70px;
+}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.hero svg.ink{position:absolute;pointer-events:none}
+.enso{width:min(130vw,880px);height:auto;left:50%;top:46%;transform:translate(-50%,-50%);color:var(--enso-c,#fff);opacity:var(--enso-o,.16)}
+.sweep{width:150%;left:-25%;bottom:4%;height:auto;color:var(--sweep-c,#fff);opacity:var(--sweep-o,.045)}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:40px;width:100%;max-width:var(--max)}
+.motto{
+  writing-mode:vertical-rl;
+  font-size:max(44px,min(14vw,8.5vh,104px));
+  font-family:var(--motto-ff,inherit);
+  font-weight:var(--motto-fw,300);letter-spacing:var(--motto-ls,.24em);line-height:1;
+  display:flex;flex-direction:column;gap:.18em;align-items:flex-start;white-space:nowrap;
+}
+.motto .ruby{font-family:var(--ruby-ff,inherit);font-size:13px;letter-spacing:.5em;opacity:.55;padding-top:.6em}
+.motto-wrap{display:flex;flex-direction:column;align-items:center}
+.motto-en{font-size:13px;letter-spacing:.2em;opacity:.6;font-style:italic;text-align:center;margin-top:20px}
+.name{text-align:center}
+.name h1{font-size:clamp(22px,6vw,40px);white-space:nowrap;font-weight:400;letter-spacing:.42em;padding-left:.42em;line-height:1.6}
+.name h1 .en{font-size:.78em;letter-spacing:.22em;white-space:nowrap}
+.name .roman{font-size:11px;letter-spacing:.45em;opacity:.6;margin-top:6px}
+.three{list-style:none;text-align:center;font-size:clamp(14px,3.9vw,16px);line-height:2.2;letter-spacing:.08em;opacity:.88;margin-top:22px}
+body.en .three{line-height:1.8}
+body.en .three li+li{margin-top:.7em}
+.scroll-cue{position:absolute;z-index:2;bottom:22px;left:50%;transform:translateX(-50%);width:1px;height:46px;background:linear-gradient(#f2f0ea,transparent);opacity:.4}
+@media (min-width:820px){
+  .hero-inner{flex-direction:row-reverse;justify-content:center;gap:90px;align-items:center}
+  .name,.three{text-align:left}
+  .three{margin-top:34px}
+}
+
+/* ---------- 本文 ---------- */
+main{position:relative}
+.sec{padding:96px var(--gutter);max-width:var(--max);margin:0 auto}
+.sec.narrow{max-width:720px}
+.sec.inner{padding-left:0;padding-right:0;padding-bottom:0}
+.h2{text-align:center;margin-bottom:56px}
+.h2::before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--shu);margin:0 auto 22px}
+.h2 h2,.h2 h1{font-size:clamp(22px,5.6vw,28px);font-weight:400;letter-spacing:.24em;padding-left:.24em;line-height:1.6}
+.h2 .sub{font-size:11px;letter-spacing:.4em;color:var(--sumi-soft);text-transform:uppercase;margin-top:4px}
+.h2 .lead{font-size:14px;letter-spacing:.14em;color:var(--sumi-soft);margin-top:10px}
+h3{font-size:18px;font-weight:600;letter-spacing:.14em;margin:56px 0 20px;line-height:1.7}
+h4{font-size:16px;font-weight:600;letter-spacing:.12em;margin:32px 0 12px}
+p{margin-bottom:1.3em}
+.prose{font-size:15.5px;line-height:2.15}
+@media (min-width:820px){.prose{font-size:16.5px}.prose.center{text-align:center}}
+.reading{font-size:12px;letter-spacing:.2em;color:var(--sumi-soft);font-weight:400}
+.note-small{font-size:12.5px;color:var(--sumi-soft);line-height:1.9;margin-top:14px}
+blockquote.say{margin:22px 0 0;padding:4px 0 4px 20px;border-left:2px solid var(--kin);font-size:15.5px;line-height:2.1}
+blockquote.say p{margin:0}
+.ext::after{content:" ↗";font-size:.85em}
+
+/* ---------- 入口ボタン ---------- */
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:720px;margin:0 auto;padding:56px var(--gutter) 0}
+.gates a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  min-height:112px;padding:14px 6px;text-align:center;text-decoration:none;
+  border:1px solid var(--sumi);background:rgba(244,239,228,.7);
+  font-size:15px;letter-spacing:.12em;line-height:1.5;transition:background .3s,color .3s;
+}
+.gates a:hover{background:var(--sumi);color:var(--kinari)}
+.gates small{display:block;font-size:12px;letter-spacing:.14em;opacity:.72;margin-top:-6px}
+.gates svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.1}
+
+/* ---------- お知らせ ---------- */
+.news{list-style:none;border-top:1px solid var(--line)}
+.news li{display:flex;flex-wrap:wrap;gap:4px 24px;padding:20px 4px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.9}
+.news time{color:var(--sumi-soft);letter-spacing:.1em;font-size:14px;min-width:7.5em}
+.news .body{flex:1 1 16em;min-width:0}
+.news .empty{color:var(--sumi-soft)}
+.more{display:block;text-align:right;margin-top:18px;font-size:14px;letter-spacing:.12em}
+
+/* ---------- 金の筆あと（ページで1本だけ） ---------- */
+.kin-wrap{position:relative;width:min(70%,420px);margin:0 auto}
+.kin-line{display:block;width:100%;height:auto;opacity:.85}
+.kin-wrap .on-line{display:none}
+
+/* ---------- 写真の空き枠（撮影予定） ---------- */
+.ph{
+  position:relative;margin:0;
+  background-color:var(--kinari-deep);
+  background-image:
+    radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.35),transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .40  0 0 0 0 .32  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:3/2;
+}
+.ph.tall{aspect-ratio:4/5}
+.ph.wide{aspect-ratio:16/9}
+@media (min-width:820px){.ph.band{aspect-ratio:21/9}}
+.ph .tag{
+  font-size:12.5px;letter-spacing:.12em;line-height:1.8;color:var(--sumi-soft);
+  background:rgba(244,239,228,.85);border:1px solid var(--line);padding:6px 14px;margin:12px;text-align:center;
+}
+.ph .tag::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--shu);opacity:.7;margin-right:.7em;vertical-align:.15em}
+.band-wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+
+.split{display:grid;gap:44px}
+@media (min-width:820px){.split{grid-template-columns:1fr 1fr;gap:64px;align-items:start}}
+
+/* ---------- 大切にしていること ---------- */
+.rules{list-style:none;counter-reset:r;display:grid;gap:14px}
+.rules li{counter-increment:r;padding:18px 20px 18px 56px;position:relative;background:rgba(255,255,255,.35);border:1px solid var(--line);font-size:15px;line-height:1.95}
+.rules li::before{content:counter(r,cjk-ideographic);position:absolute;left:20px;top:17px;color:var(--sumi-soft)}
+.rules b{font-weight:600;display:block;letter-spacing:.1em}
+
+/* ---------- 指導者 ---------- */
+.sensei-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,3.4vw,36px);max-width:760px;margin:0 auto}
+.sensei{margin:0}
+.sensei-img{overflow:hidden;background:var(--kinari-deep);aspect-ratio:4/5}
+.sensei-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.16) contrast(.95) brightness(1.03)}
+.sensei figcaption{text-align:center;padding-top:14px;font-size:12.5px;letter-spacing:.12em;line-height:1.8}
+.sensei .role-s{display:block;font-size:15px;letter-spacing:.2em;margin-bottom:2px}
+.persons-wrap{max-width:720px;margin:56px auto 0}
+.person{padding:30px 0;border-bottom:1px solid var(--line)}
+.person:first-child{border-top:1px solid var(--line)}
+.person .role{font-size:13px;letter-spacing:.2em;color:var(--sumi-soft);margin:0}
+.person .pname{font-size:22px;letter-spacing:.2em;margin:4px 0 2px;font-weight:400;line-height:1.6}
+.person .rank{font-size:14px;color:var(--sumi-soft);margin-bottom:14px}
+.person p{font-size:15px}
+
+/* ---------- 表 ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:14px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.75}
+.tbl thead th{font-size:12.5px;letter-spacing:.1em;color:var(--sumi-soft);font-weight:400;border-bottom:1px solid var(--sumi)}
+.tbl tbody th{font-weight:600;width:1%;white-space:nowrap}
+.tbl td.time{white-space:nowrap;letter-spacing:.02em}
+.tbl.fee td{white-space:nowrap}
+body.en .tbl.fee td,body.en .tbl.fee tbody th{white-space:normal}
+body.en .tbl.fee tbody th{width:32%}
+.tbl th{overflow-wrap:normal;word-break:keep-all}
+@media (max-width:420px){.tbl{font-size:14px}.tbl th,.tbl td{padding:12px 5px}}
+.costs{list-style:none;font-size:15px;line-height:1.9;margin-top:16px}
+.costs li{padding:8px 0 8px 1.2em;position:relative;border-bottom:1px dotted var(--line)}
+.costs li::before{content:"";position:absolute;left:2px;top:1.05em;width:5px;height:5px;border-radius:50%;background:var(--sumi-soft)}
+
+.steps{list-style:none;counter-reset:s;display:grid;border-left:1px solid var(--line);margin-left:12px}
+.steps li{counter-increment:s;position:relative;padding:0 0 26px 30px;font-size:15px;line-height:1.95}
+.steps li::before{content:counter(s);position:absolute;left:-13px;top:2px;width:26px;height:26px;border-radius:50%;background:var(--kinari);border:1px solid var(--sumi);font-size:13px;display:flex;align-items:center;justify-content:center;line-height:1}
+
+.btn{
+  display:block;width:100%;max-width:360px;margin:36px auto 0;padding:18px 20px;text-align:center;text-decoration:none;
+  background:var(--sumi);color:var(--kinari);letter-spacing:.18em;font-size:15px;border:1px solid var(--sumi);transition:background .3s,color .3s;
+}
+.btn:hover{background:transparent;color:var(--sumi)}
+.btn.ghost{background:transparent;color:var(--sumi)}
+.btn.ghost:hover{background:var(--sumi);color:var(--kinari)}
+
+/* ---------- 道場生の声 ---------- */
+.voices{display:grid;gap:16px;margin-top:24px}
+@media (min-width:820px){.voices{grid-template-columns:1fr 1fr}}
+.voice{min-height:120px;display:flex;align-items:center;justify-content:center;padding:20px;border:1px dashed var(--kk);background:rgba(217,115,90,.04);text-align:center}
+
+/* ---------- よくある質問 ---------- */
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 36px 20px 30px;position:relative;font-size:15.5px;line-height:1.8}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"問";position:absolute;left:0;top:20px;font-size:14px;color:var(--shu)}
+body.en .faq summary::before{content:"Q"}
+.faq summary::after{content:"";position:absolute;right:8px;top:30px;width:10px;height:10px;border-right:1px solid var(--sumi);border-bottom:1px solid var(--sumi);transform:rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(-135deg);top:34px}
+.faq .a{padding:0 4px 22px 30px;font-size:15px;line-height:2;color:#3a3833}
+
+/* ---------- 囲み（倫理憲章・通信の囲み記事） ---------- */
+.box{border:1px solid var(--sumi-soft);background:rgba(255,255,255,.4);padding:26px 24px;font-size:15px;line-height:2.1}
+.box p{margin-bottom:1em}
+.box p:last-child{margin-bottom:0}
+.box .sign{text-align:right;font-size:14px;color:var(--sumi-soft)}
+@media (max-width:420px){.box{padding:20px 16px}}
+
+/* ---------- 通信の一覧 ---------- */
+.ts-list{list-style:none;border-top:1px solid var(--line)}
+.ts-list li{border-bottom:1px solid var(--line)}
+.ts-list a{display:grid;grid-template-columns:auto 1fr auto;gap:4px 18px;align-items:baseline;padding:20px 4px;text-decoration:none}
+.ts-list a:hover .t{text-decoration:underline}
+.ts-list .no{font-size:13px;letter-spacing:.12em;color:var(--shu);min-width:3.4em}
+.ts-list .t{font-size:16px;line-height:1.8}
+.ts-list .t small{display:block;font-size:12.5px;color:var(--sumi-soft);letter-spacing:.06em}
+.ts-list .d{font-size:13px;color:var(--sumi-soft);letter-spacing:.08em;white-space:nowrap}
+.ts-list .kk{font-size:12px}
+.ts-list .arrow{grid-column:3;grid-row:1}
+@media (max-width:519px){.ts-list a{grid-template-columns:auto 1fr}.ts-list .d{grid-column:2}}
+
+/* ---------- 地図 ---------- */
+.map{margin-top:28px;border:1px solid var(--line);background:var(--kinari-deep);aspect-ratio:4/3}
+@media (min-width:820px){.map{aspect-ratio:16/9}}
+.map iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(.55) sepia(.12) contrast(.95)}
+.map-link{display:block;text-align:right;margin-top:10px;font-size:13.5px;letter-spacing:.08em}
+
+/* ---------- フッター ---------- */
+footer{background:var(--kuro);color:#d9d6cf;padding:72px var(--gutter) 40px;text-align:center;font-size:13px;line-height:2.1;letter-spacing:.06em}
+footer .fname{font-size:20px;letter-spacing:.4em;padding-left:.4em;color:#f2f0ea;margin-bottom:18px}
+footer a{color:#f2f0ea}
+footer .orgs{margin:22px auto 0;max-width:560px}
+footer .orgs a,footer .orgs span.org{display:inline-block;margin:0 .5em}
+footer .fnav{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px}
+footer .copy{margin-top:36px;font-size:11px;opacity:.6}
+.fl{background:none;border:0;font:inherit;color:#f2f0ea;text-decoration:underline;cursor:pointer;padding:6px}
+
+/* ---------- 下層ページ（お知らせ一覧・通信） ---------- */
+body.sub main{padding-top:64px}
+.crumb{max-width:720px;margin:0 auto;padding:28px var(--gutter) 0;font-size:12.5px;letter-spacing:.08em;color:var(--sumi-soft)}
+.crumb a{color:var(--sumi-soft)}
+.jonly{font-size:13px;letter-spacing:.06em;color:var(--sumi-soft);border:1px solid var(--line);background:rgba(255,255,255,.4);padding:8px 14px;margin:0 0 28px;text-align:center}
+
+/* 通信の記事 */
+.article{max-width:680px;margin:0 auto;padding:40px var(--gutter) 96px}
+.article .head{text-align:center;margin-bottom:44px}
+.article .head::before{content:"";display:block;width:9px;height:9px;border-radius:50%;background:var(--shu);margin:0 auto 20px}
+.article .series{font-size:13px;letter-spacing:.3em;color:var(--sumi-soft)}
+.article h1{font-size:clamp(22px,6vw,30px);font-weight:400;letter-spacing:.16em;line-height:1.6;margin:8px 0 4px}
+.article h1 .ruby{display:block;font-size:13px;letter-spacing:.3em;color:var(--sumi-soft)}
+.article .subt{font-size:15px;letter-spacing:.1em;color:var(--sumi-soft);margin:0}
+.article .meta{font-size:13px;letter-spacing:.1em;color:var(--sumi-soft);margin-top:12px}
+.article .body{font-size:16px;line-height:2.2}
+.article .body p{margin-bottom:1.5em}
+.article .body h2{font-size:18px;font-weight:600;letter-spacing:.14em;margin:48px 0 18px;line-height:1.7}
+.article .body .box{margin:28px 0}
+.article .lines p{margin-bottom:.5em}
+.article .lines{margin-bottom:1.5em}
+.article hr{border:0;height:1px;background:var(--line);margin:64px 0 48px}
+.article .part-head{text-align:center;margin-bottom:28px}
+.article .part-head h2{font-size:clamp(19px,5vw,24px);font-weight:400;letter-spacing:.14em;margin:0}
+.paper-photo{margin:28px 0;padding:18px 18px 16px;border:1px solid var(--line);background:var(--kinari-deep);font-size:13.5px;line-height:1.9}
+.paper-photo p{margin-bottom:0}
+.paper-photo .what{color:var(--sumi-soft);letter-spacing:.06em;margin:0}
+.paper-photo .what::before{content:"紙面の写真";display:inline-block;font-size:11px;letter-spacing:.1em;border:1px solid var(--sumi-soft);padding:0 .5em;margin-right:.7em;vertical-align:.1em}
+.paper-photo .cap{margin:6px 0 0;font-size:14px}
+.paper-photo a{display:inline-block;margin-top:8px;font-size:13px;letter-spacing:.06em}
+.pdf-box{margin:56px 0 0;padding:24px 20px;border:1px solid var(--sumi);text-align:center}
+.pdf-box p{font-size:13.5px;color:var(--sumi-soft);margin:0 0 4px}
+.pdf-box .btn{margin-top:14px}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;font-size:14px;line-height:1.7}
+.pager a{display:block;padding:14px 16px;border:1px solid var(--line);text-decoration:none;background:rgba(255,255,255,.3)}
+.pager a:hover{border-color:var(--sumi)}
+.pager .next{text-align:right;grid-column:2}
+.pager small{display:block;font-size:11.5px;color:var(--sumi-soft);letter-spacing:.1em}
+.back{display:block;text-align:center;margin-top:28px;font-size:14px;letter-spacing:.12em}
+
+/* ---------- ふわっと出る ---------- */
+.fade{opacity:0;transform:translateY(16px);transition:opacity 1.2s ease,transform 1.2s ease}
+.fade.in{opacity:1;transform:none}
+.no-js .fade{opacity:1;transform:none}
+.hero .fade{opacity:1;transform:none;transition:none;animation:rise 1.6s ease both}
+.hero .fade:nth-child(n+2){animation-delay:.5s}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none;animation:none!important}html{scroll-behavior:auto}}
+
+/* =========================================================
+   すかし（シルエット）  <body data-sukashi="a|b|c"> で切り替え
+   a＝静（見出しの後ろに薄く）  b＝流れ（左右に流れる）  c＝一点（金の筆あとの上に1つ）
+   ========================================================= */
+.wm,.wm-h,.flow,.foot-rei,.on-line{pointer-events:none;user-select:none;-webkit-user-drag:none}
+.wm,.wm-h,.flow,.foot-rei{display:none}
+.hero .wm{position:absolute;left:50%;top:46%;height:auto}
+
+/* --- A 静 --- */
+body[data-sukashi="a"] .wm.sk-a{display:block;width:min(68vw,520px);transform:translate(-50%,-50%);opacity:.075}
+body[data-sukashi="a"] .h2{position:relative;isolation:isolate}
+body[data-sukashi="a"] .wm-h{display:block;position:absolute;left:50%;top:50%;width:150px;height:auto;transform:translate(-50%,-48%);opacity:.075;z-index:-1}
+@media (min-width:820px){body[data-sukashi="a"] .wm-h{width:180px}}
+
+/* --- B 流れ --- */
+body[data-sukashi="b"] main{overflow-x:hidden;overflow-x:clip}
+body[data-sukashi="b"] .sec{position:relative}
+body[data-sukashi="b"] .sec>*:not(.flow){position:relative;z-index:1}
+body[data-sukashi="b"] .wm.sk-b{display:block;width:min(52vw,300px);transform:translate(-50%,62%);opacity:.08}
+body[data-sukashi="b"] .flow{
+  --w:clamp(230px,40vw,500px);display:block;position:absolute;top:24px;z-index:0;width:var(--w);
+  opacity:0;transform:translateY(48px);transition:opacity 2.6s ease,transform 2.6s ease}
+body[data-sukashi="b"] .flow.in{opacity:1;transform:none}
+.flow img{width:100%;height:auto;opacity:.055}
+.flow.r{left:calc(50% + 50vw - var(--w)*.8)}
+.flow.l{left:calc(50% - 50vw - var(--w)*.2)}
+.flow.l img{transform:scaleX(-1)}
+.flow .lab{position:absolute;top:-6px;writing-mode:vertical-rl;font-size:12px;letter-spacing:.6em;color:var(--sumi-soft);opacity:.75;white-space:nowrap}
+.flow .lab i{font-style:normal;display:block;margin-bottom:.6em;color:var(--shu);opacity:.8}
+.flow.r .lab{left:6px}
+.flow.l .lab{right:6px}
+body[data-sukashi="b"] .foot-rei{display:block;width:96px;height:auto;margin:0 auto 18px;opacity:.16}
+@media (max-width:819px){body[data-sukashi="b"] .flow{top:12px}.flow img{opacity:.05}}
+@media (prefers-reduced-motion:reduce){body[data-sukashi="b"] .flow{opacity:1;transform:none;transition:none}}
+
+/* --- C 一点 --- */
+body[data-sukashi="c"] .wm.sk-c{display:block;width:min(92vw,620px);transform:translate(-50%,-50%);opacity:.085}
+body[data-sukashi="c"] .kin-wrap{padding-top:clamp(52px,9vw,76px)}
+body[data-sukashi="c"] .kin-wrap .on-line{display:block;position:absolute;left:50%;bottom:0;margin-bottom:3.4%;height:clamp(50px,9vw,74px);width:auto;transform:translateX(-50%);opacity:.92}
+
+/* =========================================================
+   最初の画面の「円相の色」と「正勝吾勝の書体」
+   <body data-enso="white|kin|shu" data-motto-font="noto|syuku|mai|boku|antique|b1|kaisei">
+   ここ1か所で切り替え。試しに見るときは index.html?enso=kin&motto=syuku
+   （変数で渡しているので、いちばん近い親の指定が効く＝比較ページで並べられる）
+   ========================================================= */
+/* 円相の色 */
+[data-enso="white"]{--enso-c:#fff;--enso-o:.16;--sweep-c:#fff;--sweep-o:.045}
+[data-enso="kin"]{--enso-c:#d2ad62;--enso-o:.34;--sweep-c:#fff;--sweep-o:.045}
+[data-enso="shu"]{--enso-c:#cf4b2c;--enso-o:.34;--sweep-c:#fff;--sweep-o:.04}
+/* 正勝吾勝の書体（字はGoogle Fontsから4字＋ふりがなだけ読み込む）
+   Yuji Mai・Yuji Boku は小さいふりがなが崩し字に近く読みにくいので、ふりがなだけ Noto Serif JP にする */
+[data-motto-font="noto"]{--motto-ff:"Noto Serif JP",serif;--motto-fw:300;--motto-ls:.24em;--ruby-ff:"Noto Serif JP",serif}
+[data-motto-font="syuku"]{--motto-ff:"Yuji Syuku","Noto Serif JP",serif;--motto-fw:400;--motto-ls:.14em;--ruby-ff:"Yuji Syuku","Noto Serif JP",serif}
+[data-motto-font="mai"]{--motto-ff:"Yuji Mai","Noto Serif JP",serif;--motto-fw:400;--motto-ls:.14em;--ruby-ff:"Noto Serif JP",serif}
+[data-motto-font="boku"]{--motto-ff:"Yuji Boku","Noto Serif JP",serif;--motto-fw:400;--motto-ls:.14em;--ruby-ff:"Noto Serif JP",serif}
+[data-motto-font="antique"]{--motto-ff:"Zen Antique","Noto Serif JP",serif;--motto-fw:400;--motto-ls:.2em;--ruby-ff:"Zen Antique","Noto Serif JP",serif}
+[data-motto-font="b1"]{--motto-ff:"Shippori Mincho B1","Noto Serif JP",serif;--motto-fw:500;--motto-ls:.22em;--ruby-ff:"Shippori Mincho B1","Noto Serif JP",serif}
+[data-motto-font="kaisei"]{--motto-ff:"Kaisei Tokumin","Noto Serif JP",serif;--motto-fw:500;--motto-ls:.2em;--ruby-ff:"Kaisei Tokumin","Noto Serif JP",serif}
+
+/* =========================================================
+   全体の色のトーン  <body data-tone="base|nijimi|kogo|sumi|shizume">
+   base＝いまのまま（黒の最初の画面 → 明るい生成り）
+   nijimi＝最初の画面の下端を、墨が和紙ににじむようにつなぐ
+   kogo＝墨地と生成りを交互に（指導者・倫理憲章・フッターが墨地）
+   sumi＝全体を温かい墨色の地に、文字は生成り色
+   shizume＝本文の地を、落ち着いた灰茶寄りの和紙色に沈める
+   空白で区切って重ねられる（例：data-tone="nijimi shizume"）。試すときは index.html?tone=nijimi+shizume
+   ========================================================= */
+.nijimi{display:none}
+
+/* --- にじみ --- */
+[data-tone~="nijimi"] .nijimi{display:block;position:absolute;left:0;top:-1px;width:100%;height:clamp(110px,15vw,200px);pointer-events:none;z-index:0}
+[data-tone~="nijimi"] .gates{position:relative;z-index:1;padding-top:clamp(96px,13vw,150px)}
+[data-tone~="nijimi"] .hero::after{background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(0,0,0,.55) 100%),linear-gradient(transparent 82%,var(--kuro) 100%)}
+
+/* --- 墨の地（sumi は全体、kogo は一部の欄だけ） --- */
+[data-tone~="sumi"],
+[data-tone~="kogo"] #instructors,
+[data-tone~="kogo"] #ethics{
+  --kinari:#1c1a17;--kinari-deep:#27241f;--line:#3e3932;
+  --sumi:#ebe5d8;--sumi-soft:#ada493;--shu:#d6603f;--kin:#c4a05a;
+  color:var(--sumi);
+}
+[data-tone~="sumi"]{background-color:var(--kinari);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='%231c1a17' stroke='%23d8cfbd' stroke-opacity='.05' stroke-width='.7'%3E%3Cg id='w'%3E%3Ccircle r='23'/%3E%3Ccircle r='17'/%3E%3Ccircle r='11'/%3E%3Ccircle r='5'/%3E%3C/g%3E%3Cuse href='%23w' x='0' y='0'/%3E%3Cuse href='%23w' x='48' y='0'/%3E%3Cuse href='%23w' x='24' y='12'/%3E%3Cuse href='%23w' x='0' y='24'/%3E%3Cuse href='%23w' x='48' y='24'/%3E%3Cuse href='%23w' x='24' y='36'/%3E%3C/g%3E%3C/svg%3E")}
+[data-tone~="kogo"] #instructors,[data-tone~="kogo"] #ethics{background:var(--kinari);box-shadow:0 0 0 100vmax var(--kinari);clip-path:inset(0 -100vmax)}
+[data-tone~="sumi"] .gates a,[data-tone~="kogo"] #instructors .gates a{background:rgba(28,26,23,.6)}
+[data-tone~="sumi"] .top.solid{background:rgba(28,26,23,.95)}
+[data-tone~="sumi"] .ph,[data-tone~="kogo"] #instructors .ph{background-image:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.05),transparent 60%)}
+[data-tone~="sumi"] .ph .tag{background:rgba(28,26,23,.85)}
+[data-tone~="sumi"] .rules li,[data-tone~="sumi"] .box,[data-tone~="kogo"] #ethics .box,[data-tone~="sumi"] .pager a{background:rgba(255,255,255,.035)}
+[data-tone~="sumi"] .faq .a{color:#d3cbbc}
+[data-tone~="sumi"] .kk,[data-tone~="kogo"] #instructors .kk,[data-tone~="kogo"] #ethics .kk{color:#f0b9a8;background:rgba(217,115,90,.12)}
+[data-tone~="sumi"] .sensei-img img,[data-tone~="kogo"] #instructors .sensei-img img{filter:grayscale(1) sepia(.16) contrast(.95) brightness(.92)}
+[data-tone~="sumi"] .kin-line{opacity:.7}
+[data-tone~="sumi"] .map iframe{filter:grayscale(.3) brightness(.85)}
+
+/* --- 生成りを沈める --- */
+[data-tone~="shizume"]{
+  --kinari:#ddd5c6;--kinari-deep:#d1c8b6;--line:#bfb4a0;--sumi-soft:#4f4b44;
+  background-color:var(--kinari);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='%23ddd5c6' stroke='%23857760' stroke-opacity='.1' stroke-width='.7'%3E%3Cg id='w'%3E%3Ccircle r='23'/%3E%3Ccircle r='17'/%3E%3Ccircle r='11'/%3E%3Ccircle r='5'/%3E%3C/g%3E%3Cuse href='%23w' x='0' y='0'/%3E%3Cuse href='%23w' x='48' y='0'/%3E%3Cuse href='%23w' x='24' y='12'/%3E%3Cuse href='%23w' x='0' y='24'/%3E%3Cuse href='%23w' x='48' y='24'/%3E%3Cuse href='%23w' x='24' y='36'/%3E%3C/g%3E%3C/svg%3E");
+}
+[data-tone~="shizume"] .gates a{background:rgba(221,213,198,.7)}
+[data-tone~="shizume"] .top.solid{background:rgba(221,213,198,.95)}
+[data-tone~="shizume"] .ph .tag{background:rgba(221,213,198,.88)}
+[data-tone~="shizume"] .rules li,[data-tone~="shizume"] .box{background:rgba(255,255,255,.2)}
+
+/* =========================================================
+   デザインパターン（すかし×朱の差し色）  <body data-pattern="none|p1|p2|p3|p4|p5">
+   none＝いまのまま（パターンなし）
+   p1＝落款　　朱の印を「正勝吾勝」とフッターに。見出しの朱は小さな角印。すかしは最初の画面の1つだけ
+   p2＝朱の一本線　見出しの朱の丸を細い朱の筆線に（2026-11-14 決定）。見出しの後ろのシルエットは data-p2-sil="on" のときだけ、金の筆あとは data-p2-kin="on" のときだけ
+   p3＝技の連続　見出しに朱の漢数字と技の名（一 礼 → 八 礼）。シルエットが左右交互に薄く続く
+   p4＝朱の円　　見出しの朱の丸を大きな朱の円にし、中に技のシルエットを白抜き
+   p5＝帯　　　　要所に墨地の細い帯。帯の中に白いシルエットと小さな朱。朱は帯の中だけ
+   試すときは index.html?pattern=p3（ほかの指定と並べてもよい）
+   朱の形（筆線・円・印のかすれ）は自作のSVG。シルエットは assets/sil/ の自作の画像
+   ========================================================= */
+.p-seal,.p-obi{display:none}
+.p-seal{pointer-events:none;user-select:none}
+
+/* --- p1 落款 --- */
+body[data-pattern="p1"] .h2::before{
+  width:14px;height:14px;border-radius:0;background:var(--shu);transform:rotate(-3deg);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='r' x='-5%25' y='-5%25' width='110%25' height='110%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='2' seed='3' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='4' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.28' numOctaves='1' seed='8' result='s'/%3E%3CfeColorMatrix in='s' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -6.3' result='h'/%3E%3CfeComposite in='d' in2='h' operator='out'/%3E%3C/filter%3E%3Crect filter='url(%23r)' x='3' y='3' width='94' height='94' fill='%23fff'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='r' x='-5%25' y='-5%25' width='110%25' height='110%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='2' seed='3' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='4' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.28' numOctaves='1' seed='8' result='s'/%3E%3CfeColorMatrix in='s' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -6.3' result='h'/%3E%3CfeComposite in='d' in2='h' operator='out'/%3E%3C/filter%3E%3Crect filter='url(%23r)' x='3' y='3' width='94' height='94' fill='%23fff'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+body[data-pattern="p1"] .p-seal{
+  display:inline-flex;writing-mode:vertical-rl;align-items:center;justify-content:center;
+  background:var(--shu);color:#f6efe2;font-family:"Noto Serif JP",serif;font-weight:600;
+  font-size:15px;line-height:1.12;letter-spacing:0;padding:7px 5px;
+  box-shadow:inset 0 0 0 2px var(--shu),inset 0 0 0 3px rgba(246,239,226,.9);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='r' x='-5%25' y='-5%25' width='110%25' height='110%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='2' seed='3' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='4' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.28' numOctaves='1' seed='8' result='s'/%3E%3CfeColorMatrix in='s' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -6.3' result='h'/%3E%3CfeComposite in='d' in2='h' operator='out'/%3E%3C/filter%3E%3Crect filter='url(%23r)' x='3' y='3' width='94' height='94' fill='%23fff'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='r' x='-5%25' y='-5%25' width='110%25' height='110%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.09' numOctaves='2' seed='3' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='4' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.28' numOctaves='1' seed='8' result='s'/%3E%3CfeColorMatrix in='s' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -6.3' result='h'/%3E%3CfeComposite in='d' in2='h' operator='out'/%3E%3C/filter%3E%3Crect filter='url(%23r)' x='3' y='3' width='94' height='94' fill='%23fff'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+body[data-pattern="p1"] .hero .motto{position:relative}
+body[data-pattern="p1"] .hero .p-seal{position:absolute;right:calc(100% + .32em);bottom:-.1em;font-size:max(14px,.19em);opacity:.92;transform:rotate(-1.5deg)}
+body[data-pattern="p1"] footer .p-seal{position:static;font-size:12px;padding:6px 4px;margin:-6px auto 22px;display:flex;width:max-content;opacity:.88}
+
+/* --- p2 朱の一本線 --- */
+body[data-pattern="p2"] .h2{position:relative;isolation:isolate}
+body[data-pattern="p2"] .h2::before{width:92px;height:10px;border-radius:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 24'%3E%3Cfilter id='r' x='-5%25' y='-40%25' width='110%25' height='180%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.06 .5' numOctaves='2' seed='4' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='3.2'/%3E%3C/filter%3E%3Cpath filter='url(%23r)' fill='%23c0432b' d='M4.0 12.0L5.9 10.3L7.9 9.3L9.8 8.5L11.7 7.8L13.7 7.1L15.6 6.6L17.5 6.1L19.5 6.0L21.4 6.1L23.3 6.2L25.3 6.3L27.2 6.4L29.1 6.5L31.1 6.6L33.0 6.7L34.9 6.8L36.9 6.8L38.8 6.8L40.7 6.8L42.7 6.8L44.6 6.7L46.5 6.6L48.5 6.4L50.4 6.3L52.3 6.1L54.3 5.9L56.2 5.8L58.1 5.6L60.1 5.5L62.0 5.4L63.9 5.3L65.9 5.3L67.8 5.3L69.7 5.3L71.7 5.3L73.6 5.4L75.5 5.4L77.5 5.5L79.4 5.5L81.3 5.6L83.3 5.6L85.2 5.6L87.1 5.6L89.1 5.6L91.0 5.5L92.9 5.4L94.9 5.3L96.8 5.2L98.7 5.1L100.7 5.0L102.6 4.8L104.5 4.7L106.5 4.6L108.4 4.5L110.3 4.5L112.3 4.4L114.2 4.4L116.1 4.5L118.1 4.5L120.0 4.6L121.9 4.7L123.9 4.9L125.8 5.0L127.7 5.1L129.7 5.3L131.6 5.4L133.5 5.5L135.5 5.6L137.4 5.7L139.3 5.7L141.3 5.8L143.2 5.8L145.1 5.8L147.1 5.8L149.0 5.8L150.9 5.8L152.9 5.9L154.8 5.9L156.7 5.9L158.7 6.0L160.6 6.1L162.5 6.2L164.5 6.4L166.4 6.5L168.3 6.7L170.3 6.9L172.2 7.1L174.1 7.3L176.1 7.5L178.0 7.7L179.9 7.9L181.9 8.1L183.8 8.2L185.7 8.4L187.7 8.5L189.6 8.6L191.5 8.7L193.5 8.8L195.4 8.8L197.3 8.9L199.3 9.0L201.2 9.0L203.1 9.1L205.1 9.2L207.0 9.3L208.9 9.4L210.9 9.5L212.8 9.7L214.7 9.8L216.7 10.0L218.6 10.2L220.5 10.3L222.5 10.5L224.4 10.7L226.3 10.8L228.3 11.0L230.2 11.2L232.1 11.4L234.1 11.6L236.0 12.2L236.0 12.2L234.1 12.8L232.1 13.0L230.2 13.1L228.3 13.2L226.3 13.4L224.4 13.5L222.5 13.6L220.5 13.7L218.6 13.8L216.7 13.8L214.7 13.9L212.8 13.9L210.9 14.0L208.9 14.0L207.0 14.0L205.1 14.0L203.1 13.9L201.2 13.9L199.3 13.8L197.3 13.7L195.4 13.7L193.5 13.6L191.5 13.5L189.6 13.4L187.7 13.4L185.7 13.3L183.8 13.3L181.9 13.3L179.9 13.3L178.0 13.3L176.1 13.3L174.1 13.4L172.2 13.4L170.3 13.4L168.3 13.4L166.4 13.5L164.5 13.5L162.5 13.4L160.6 13.4L158.7 13.3L156.7 13.3L154.8 13.2L152.9 13.1L150.9 12.9L149.0 12.8L147.1 12.7L145.1 12.6L143.2 12.5L141.3 12.5L139.3 12.4L137.4 12.4L135.5 12.4L133.5 12.4L131.6 12.5L129.7 12.6L127.7 12.7L125.8 12.8L123.9 13.0L121.9 13.1L120.0 13.2L118.1 13.3L116.1 13.4L114.2 13.5L112.3 13.5L110.3 13.6L108.4 13.6L106.5 13.6L104.5 13.6L102.6 13.6L100.7 13.5L98.7 13.5L96.8 13.5L94.9 13.5L92.9 13.5L91.0 13.6L89.1 13.7L87.1 13.8L85.2 13.9L83.3 14.1L81.3 14.3L79.4 14.5L77.5 14.7L75.5 14.9L73.6 15.1L71.7 15.3L69.7 15.5L67.8 15.7L65.9 15.8L63.9 15.9L62.0 16.0L60.1 16.0L58.1 16.0L56.2 16.0L54.3 16.0L52.3 16.0L50.4 16.0L48.5 15.9L46.5 15.9L44.6 15.9L42.7 15.9L40.7 16.0L38.8 16.1L36.9 16.2L34.9 16.3L33.0 16.5L31.1 16.6L29.1 16.8L27.2 17.0L25.3 17.2L23.3 17.4L21.4 17.5L19.5 17.6L17.5 17.6L15.6 17.2L13.7 16.6L11.7 16.0L9.8 15.4L7.9 14.6L5.9 13.7L4.0 12.0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;margin-bottom:26px}
+/* p2 の「見出しの後ろの大きく薄いシルエット」は別スイッチ data-p2-sil="on" のときだけ（既定は出さない＝すかしは別に考える） */
+body[data-pattern="p2"][data-p2-sil="on"] .wm-h{
+  display:block;position:absolute;left:50%;top:50%;z-index:-1;height:auto;
+  width:clamp(220px,46vw,380px);transform:translate(-30%,-34%);opacity:.06}
+/* 金の筆あと：data-p2-kin="on" のときだけ戻す（既定は消す。朱の筆線と同じ横線が上下に並んでけんかするため） */
+body[data-pattern="p2"]:not([data-p2-kin="on"]) .kin-wrap{display:none}
+body[data-pattern="p2"][data-p2-kin="on"] .kin-wrap .on-line{display:none} /* 筆あとを戻すときも、上の金のシルエットは出さない */
+body[data-pattern="p2"][data-p2-kin="on"] .kin-wrap{padding-top:0}
+body[data-pattern="p2"]:not([data-p2-kin="on"]) #news{padding-bottom:40px}
+
+/* --- p3 技の連続 --- */
+body[data-pattern="p3"] .h2{position:relative;isolation:isolate}
+body[data-pattern="p3"] .h2::before{
+  content:var(--step,"");width:auto;height:auto;border-radius:0;background:none;
+  font-size:13px;letter-spacing:.3em;padding-left:.3em;color:var(--shu);line-height:1;margin-bottom:18px}
+body[data-pattern="p3"] .h2::after{
+  content:"";position:absolute;top:50%;z-index:-1;pointer-events:none;
+  width:clamp(150px,30vw,250px);aspect-ratio:1;transform:translateY(-50%);
+  background-position:center;background-size:contain;background-repeat:no-repeat;opacity:.075}
+
+body[data-pattern="p3"] #news .h2::after,body[data-pattern="p3"] #aikido .h2::after,body[data-pattern="p3"] #join .h2::after,body[data-pattern="p3"] #faq .h2::after{right:calc(50% + 70px)}
+body[data-pattern="p3"] #about .h2::after,body[data-pattern="p3"] #instructors .h2::after,body[data-pattern="p3"] #voices .h2::after,body[data-pattern="p3"] #info .h2::after{left:calc(50% + 70px)}
+@media (max-width:519px){
+  body[data-pattern="p3"] #news .h2::after,body[data-pattern="p3"] #aikido .h2::after,body[data-pattern="p3"] #join .h2::after,body[data-pattern="p3"] #faq .h2::after{right:auto;left:-6px}
+  body[data-pattern="p3"] #about .h2::after,body[data-pattern="p3"] #instructors .h2::after,body[data-pattern="p3"] #voices .h2::after,body[data-pattern="p3"] #info .h2::after{left:auto;right:-6px}
+  body[data-pattern="p3"] .h2::after{width:128px;opacity:.09}
+}
+body[data-pattern="p3"] #news .h2{--step:"一 礼"}          body[data-pattern="p3"] #news .h2::after{background-image:url(../sil/sil_seiza_sumi.png)}
+body[data-pattern="p3"] #about .h2{--step:"二 相対"}       body[data-pattern="p3"] #about .h2::after{background-image:url(../sil/sil_aitai_sumi.png)}
+body[data-pattern="p3"] #aikido .h2{--step:"三 組む"}      body[data-pattern="p3"] #aikido .h2::after{background-image:url(../sil/sil_kumi_sumi.png)}
+body[data-pattern="p3"] #instructors .h2{--step:"四 崩す"} body[data-pattern="p3"] #instructors .h2::after{background-image:url(../sil/sil_kuzushi_sumi.png)}
+body[data-pattern="p3"] #join .h2{--step:"五 投げる"}      body[data-pattern="p3"] #join .h2::after{background-image:url(../sil/sil_nage1_sumi.png)}
+body[data-pattern="p3"] #voices .h2{--step:"六 受ける"}    body[data-pattern="p3"] #voices .h2::after{background-image:url(../sil/sil_nage2_sumi.png)}
+body[data-pattern="p3"] #faq .h2{--step:"七 抑える"}       body[data-pattern="p3"] #faq .h2::after{background-image:url(../sil/sil_osae_sumi.png)}
+body[data-pattern="p3"] #info .h2{--step:"八 礼"}          body[data-pattern="p3"] #info .h2::after{background-image:url(../sil/sil_seiza_sumi.png)}
+body[data-pattern="p3"] #ethics .h2::before,body[data-pattern="p3"] #tsushin .h2::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--sumi-soft);margin-bottom:22px}
+body[data-pattern="p3"] .kin-wrap .on-line{display:none}
+body[data-pattern="p3"] .kin-wrap{padding-top:0}
+body[data-pattern="p3"] .foot-rei{display:block;width:84px;height:auto;margin:0 auto 18px;opacity:.16}
+
+/* --- p4 朱の円 --- */
+body[data-pattern="p4"] .h2::before{
+  width:clamp(58px,15vw,70px);height:auto;aspect-ratio:1;border-radius:0;margin-bottom:22px;
+  background:var(--en-sil) center 60%/68% auto no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='r' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='3' seed='9' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='5'/%3E%3C/filter%3E%3Ccircle filter='url(%23r)' cx='50' cy='50' r='46' fill='%23c0432b'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+body[data-pattern="p4"] #news .h2{--en-sil:url(../sil/sil_seiza_kinari.png)}
+body[data-pattern="p4"] #about .h2{--en-sil:url(../sil/sil_aitai_kinari.png)}
+body[data-pattern="p4"] #aikido .h2{--en-sil:url(../sil/sil_kumi_kinari.png)}
+body[data-pattern="p4"] #instructors .h2{--en-sil:url(../sil/sil_aitai_kinari.png)}
+body[data-pattern="p4"] #join .h2{--en-sil:url(../sil/sil_kuzushi_kinari.png)}
+body[data-pattern="p4"] #voices .h2{--en-sil:url(../sil/sil_nage1_kinari.png)}
+body[data-pattern="p4"] #faq .h2{--en-sil:url(../sil/sil_osae_kinari.png)}
+body[data-pattern="p4"] #ethics .h2{--en-sil:url(../sil/sil_seiza_kinari.png)}
+body[data-pattern="p4"] #tsushin .h2{--en-sil:url(../sil/sil_nage2_kinari.png)}
+body[data-pattern="p4"] #info .h2{--en-sil:url(../sil/sil_seiza_kinari.png)}
+body[data-pattern="p4"] .kin-wrap .on-line{display:none}
+body[data-pattern="p4"] .kin-wrap{padding-top:0}
+
+/* --- p5 帯 --- */
+body[data-pattern="p5"] .p-obi{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  position:relative;background:#1b1a17;color:#efe9dc;padding:26px var(--gutter) 24px;margin:0;overflow:hidden}
+body[data-pattern="p5"] .p-obi::before,body[data-pattern="p5"] .p-obi::after{ /* 帯の上下に細い墨の筋（にじみ） */
+  content:"";position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(239,233,220,.10) 20%,rgba(239,233,220,.10) 80%,transparent)}
+body[data-pattern="p5"] .p-obi::before{top:7px}
+body[data-pattern="p5"] .p-obi::after{bottom:7px}
+.p-obi .row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(6px,2.6vw,30px);max-width:820px;width:100%}
+.p-obi .row img{height:clamp(30px,6.4vw,58px);width:auto;opacity:.72}
+.p-obi .row img.seiza{height:clamp(20px,4.2vw,38px)}
+.p-obi .shu{display:block;width:7px;height:7px;border-radius:50%;background:var(--shu);flex-shrink:0;align-self:center;margin-right:clamp(2px,1.4vw,14px)}
+.p-obi .one{height:clamp(46px,9vw,72px);width:auto;opacity:.8}
+.p-obi .brush{display:block;width:62px;height:7px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 24'%3E%3Cfilter id='r' x='-5%25' y='-40%25' width='110%25' height='180%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.06 .5' numOctaves='2' seed='4' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='3.2'/%3E%3C/filter%3E%3Cpath filter='url(%23r)' fill='%23c0432b' d='M4.0 12.0L5.9 10.3L7.9 9.3L9.8 8.5L11.7 7.8L13.7 7.1L15.6 6.6L17.5 6.1L19.5 6.0L21.4 6.1L23.3 6.2L25.3 6.3L27.2 6.4L29.1 6.5L31.1 6.6L33.0 6.7L34.9 6.8L36.9 6.8L38.8 6.8L40.7 6.8L42.7 6.8L44.6 6.7L46.5 6.6L48.5 6.4L50.4 6.3L52.3 6.1L54.3 5.9L56.2 5.8L58.1 5.6L60.1 5.5L62.0 5.4L63.9 5.3L65.9 5.3L67.8 5.3L69.7 5.3L71.7 5.3L73.6 5.4L75.5 5.4L77.5 5.5L79.4 5.5L81.3 5.6L83.3 5.6L85.2 5.6L87.1 5.6L89.1 5.6L91.0 5.5L92.9 5.4L94.9 5.3L96.8 5.2L98.7 5.1L100.7 5.0L102.6 4.8L104.5 4.7L106.5 4.6L108.4 4.5L110.3 4.5L112.3 4.4L114.2 4.4L116.1 4.5L118.1 4.5L120.0 4.6L121.9 4.7L123.9 4.9L125.8 5.0L127.7 5.1L129.7 5.3L131.6 5.4L133.5 5.5L135.5 5.6L137.4 5.7L139.3 5.7L141.3 5.8L143.2 5.8L145.1 5.8L147.1 5.8L149.0 5.8L150.9 5.8L152.9 5.9L154.8 5.9L156.7 5.9L158.7 6.0L160.6 6.1L162.5 6.2L164.5 6.4L166.4 6.5L168.3 6.7L170.3 6.9L172.2 7.1L174.1 7.3L176.1 7.5L178.0 7.7L179.9 7.9L181.9 8.1L183.8 8.2L185.7 8.4L187.7 8.5L189.6 8.6L191.5 8.7L193.5 8.8L195.4 8.8L197.3 8.9L199.3 9.0L201.2 9.0L203.1 9.1L205.1 9.2L207.0 9.3L208.9 9.4L210.9 9.5L212.8 9.7L214.7 9.8L216.7 10.0L218.6 10.2L220.5 10.3L222.5 10.5L224.4 10.7L226.3 10.8L228.3 11.0L230.2 11.2L232.1 11.4L234.1 11.6L236.0 12.2L236.0 12.2L234.1 12.8L232.1 13.0L230.2 13.1L228.3 13.2L226.3 13.4L224.4 13.5L222.5 13.6L220.5 13.7L218.6 13.8L216.7 13.8L214.7 13.9L212.8 13.9L210.9 14.0L208.9 14.0L207.0 14.0L205.1 14.0L203.1 13.9L201.2 13.9L199.3 13.8L197.3 13.7L195.4 13.7L193.5 13.6L191.5 13.5L189.6 13.4L187.7 13.4L185.7 13.3L183.8 13.3L181.9 13.3L179.9 13.3L178.0 13.3L176.1 13.3L174.1 13.4L172.2 13.4L170.3 13.4L168.3 13.4L166.4 13.5L164.5 13.5L162.5 13.4L160.6 13.4L158.7 13.3L156.7 13.3L154.8 13.2L152.9 13.1L150.9 12.9L149.0 12.8L147.1 12.7L145.1 12.6L143.2 12.5L141.3 12.5L139.3 12.4L137.4 12.4L135.5 12.4L133.5 12.4L131.6 12.5L129.7 12.6L127.7 12.7L125.8 12.8L123.9 13.0L121.9 13.1L120.0 13.2L118.1 13.3L116.1 13.4L114.2 13.5L112.3 13.5L110.3 13.6L108.4 13.6L106.5 13.6L104.5 13.6L102.6 13.6L100.7 13.5L98.7 13.5L96.8 13.5L94.9 13.5L92.9 13.5L91.0 13.6L89.1 13.7L87.1 13.8L85.2 13.9L83.3 14.1L81.3 14.3L79.4 14.5L77.5 14.7L75.5 14.9L73.6 15.1L71.7 15.3L69.7 15.5L67.8 15.7L65.9 15.8L63.9 15.9L62.0 16.0L60.1 16.0L58.1 16.0L56.2 16.0L54.3 16.0L52.3 16.0L50.4 16.0L48.5 15.9L46.5 15.9L44.6 15.9L42.7 15.9L40.7 16.0L38.8 16.1L36.9 16.2L34.9 16.3L33.0 16.5L31.1 16.6L29.1 16.8L27.2 17.0L25.3 17.2L23.3 17.4L21.4 17.5L19.5 17.6L17.5 17.6L15.6 17.2L13.7 16.6L11.7 16.0L9.8 15.4L7.9 14.6L5.9 13.7L4.0 12.0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+body[data-pattern="p5"] .kin-wrap{display:none}
+body[data-pattern="p5"] .h2::before{background:var(--sumi-soft);width:5px;height:5px;opacity:.7}
+body[data-pattern="p5"] .faq summary::before{color:var(--sumi-soft)}
+body[data-pattern="p5"] #news{padding-bottom:72px}
+
+/* =========================================================
+   最初の画面のすかし  <body data-hero-sil="nage2|ho1|ho2|ho3">（2026-11-14 追加・試作）
+   nage2＝いまのまま（宙で回る受け。data-sukashi の案に従う）
+   ho1＝鵬・真横に翼を広げる（正面）　ho2＝鵬・斜め上へ舞い上がる　ho3＝鵬・円相の弧に沿って旋回
+   鵬を選んだときは、最初の画面の人のシルエット（sk-a/b/c）を出さずに、鵬を1羽だけ出す
+   ========================================================= */
+.hero .wm.ho{display:none}
+body[data-hero-sil^="ho"] .hero .wm.sk-a,
+body[data-hero-sil^="ho"] .hero .wm.sk-b,
+body[data-hero-sil^="ho"] .hero .wm.sk-c{display:none}
+body[data-hero-sil="ho1"] .hero .wm.ho1{display:block;width:min(96vw,640px);transform:translate(-50%,-50%);opacity:var(--ho-o,.1)}
+body[data-hero-sil="ho2"] .hero .wm.ho2{display:block;width:min(86vw,560px);transform:translate(-57%,-50%);opacity:var(--ho-o,.1)}
+body[data-hero-sil="ho3"] .hero .wm.ho3{display:block;width:min(98vw,660px);transform:translate(-50%,-50%);opacity:var(--ho-o,.1)}
+
+/* ===== 指導者：上下に並べ、写真の横に紹介（2026-11-14） ===== */
+.sensei-list{max-width:820px;margin:0 auto}
+.sensei-row{display:grid;align-items:start;gap:clamp(20px,4vw,48px);padding:40px 0;border-top:1px solid var(--line)}
+.sensei-row:last-child{border-bottom:1px solid var(--line)}
+.sensei-row.is-main{grid-template-columns:minmax(0,300px) 1fr}
+.sensei-row.is-sub{grid-template-columns:minmax(0,170px) 1fr;align-items:center}
+.sensei-row .role{font-size:13px;letter-spacing:.2em;color:var(--sumi-soft);margin:0}
+.sensei-row .pname{font-size:22px;letter-spacing:.2em;margin:4px 0 2px;font-weight:400;line-height:1.6}
+.sensei-row.is-sub .pname{font-size:19px}
+.sensei-row .rank{font-size:14px;color:var(--sumi-soft);margin:0 0 14px}
+.sensei-row.is-sub .rank{margin-bottom:0}
+.sensei-row .sensei-body p{font-size:15px}
+@media (max-width:640px){
+  .sensei-row.is-main{grid-template-columns:1fr}
+  .sensei-row.is-main .sensei-img{max-width:300px;width:100%;margin:0 auto}
+  .sensei-row.is-sub{grid-template-columns:120px 1fr;gap:18px}
+  .sensei-row.is-sub .reading{display:block;margin-top:2px}
+}
+.sensei-row .reading{white-space:nowrap}
+
+/* ===== 2026-11-14 指導者：平田指導員の写真を館長と同じ300pxに ===== */
+/* 写真の横に名前・段位の形はそのまま。文字は写真の縦の中ほどに置き、上に細い線を引いて落ち着かせる */
+.sensei-row.is-sub{grid-template-columns:minmax(0,300px) 1fr;align-items:stretch}
+.sensei-row.is-sub .sensei-body{display:flex;flex-direction:column;justify-content:center}
+.sensei-row.is-sub .sensei-body::before{content:"";display:block;width:44px;height:1px;background:var(--kin);opacity:.7;margin-bottom:22px}
+.sensei-row.is-sub .pname{font-size:22px}
+/* 名前と段位の大きさを二人でそろえる（本文の p{15px} に上書きされて館長の名前だけ小さくなっていたため） */
+.sensei-row .sensei-body .pname{font-size:22px}
+.sensei-row .sensei-body .rank{font-size:14px}
+.sensei-row.is-sub .rank{margin:2px 0 0}
+@media (max-width:640px){
+  /* スマホ：館長と同じく写真を上・文字を下に。二人とも写真の幅を300pxまでにそろえ、名前の行は真ん中に */
+  .sensei-row.is-sub{grid-template-columns:1fr;gap:clamp(20px,4vw,48px)}
+  .sensei-row.is-sub .sensei-img{max-width:300px;width:100%;margin:0 auto}
+  .sensei-row.is-sub .sensei-body{padding-top:0;align-items:center}
+  .sensei-row.is-sub .sensei-body::before{display:none}
+  .sensei-row.is-sub .reading{display:inline;margin-top:0}
+  .sensei-row .role,.sensei-row .pname,.sensei-row .rank{text-align:center}
+}
+
+/* ===== 2026-11-14 稽古写真を「撮影予定」の枠に入れる ===== */
+/* 写る人の了解は確認中（回答No.34）。写真は道場の黄色い壁で明るいので、彩度と明るさを少しだけ落として墨・生成りの地になじませる */
+.ph.has-photo{
+  display:block;overflow:hidden;padding:0;
+  background:var(--kinari-deep);background-image:none;
+  border:1px solid rgba(35,35,35,.16);
+  box-shadow:0 18px 32px -24px rgba(14,14,13,.55);
+}
+.ph.has-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 50%;
+  filter:saturate(.8) brightness(.95) contrast(.97) sepia(.05);
+}
+/* 縦長の写真を横長の枠に入れるときは、枠を少し高く（4:3）して、投げと受け身が切れないように下寄りを見せる */
+.ph.has-photo.is-tate{aspect-ratio:4/3}
+.ph.has-photo.is-tate img{object-position:50% 65%}
+/* 礼の写真：二人と掛け軸が入るよう、少し下寄りを見せる */
+.ph.has-photo img[src*="keiko_03"]{object-position:50% 85%}
+
+/* ===== 志鵬館の朱印：正勝吾勝の左下に落款のように小さく（2026-11-14） ===== */
+.hero .motto{position:relative}
+.hero .motto .shuin{position:absolute;right:calc(100% + .28em);bottom:.05em;width:clamp(30px,.6em,46px);height:auto;opacity:.88;transform:rotate(-2deg);pointer-events:none;user-select:none}
+body[data-pattern="p1"] .hero .motto .shuin{display:none}
+
+/* ===== 入口：筆の円相（案1に決定・2026-11-14）。見学・体験だけ朱 ===== */
+.gates.enso-gates{grid-template-columns:repeat(4,1fr);max-width:760px;gap:clamp(12px,3vw,32px)}
+.enso-gates a{position:relative;aspect-ratio:1;min-height:0;padding:0;border:0;background:none;border-radius:50%;gap:2px;color:var(--sumi);transition:none}
+.enso-gates a:hover{background:none;color:var(--sumi)}
+.enso-gates svg.ens{position:absolute;inset:0;width:100%;height:100%;stroke:none;fill:currentColor;color:var(--sumi);opacity:.82;transition:color .35s,opacity .35s,transform .6s}
+.enso-gates a.main svg.ens{color:var(--shu);opacity:.9}
+.enso-gates .fd{position:relative;font-family:"Yuji Syuku","Noto Serif JP",serif;font-weight:400;font-size:clamp(15px,2.2vw,20px);letter-spacing:.06em;line-height:1.5}
+.enso-gates small{position:relative;margin-top:0;font-size:12px;letter-spacing:.12em;color:var(--sumi-soft);opacity:1}
+.enso-gates a:hover svg.ens,.enso-gates a:focus-visible svg.ens{color:var(--shu);opacity:1;transform:rotate(8deg)}
+.enso-gates a:focus-visible{outline-offset:4px}
+@media (max-width:640px){
+  .gates.enso-gates{grid-template-columns:repeat(2,1fr);max-width:340px;gap:18px 26px}
+  .enso-gates .fd{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){.enso-gates svg.ens{transition:none}.enso-gates a:hover svg.ens{transform:none}}
+
+/* ===== 小見出しの下に墨の筆線・道場名を筆文字に（案1に決定・2026-11-14） ===== */
+h3 .fude-ln{display:block;width:68px;height:9px;margin-top:6px;color:var(--sumi);opacity:.88;pointer-events:none}
+h4 .fude-ln{display:block;width:42px;height:6px;margin-top:4px;color:var(--sumi);opacity:.7;pointer-events:none}
+.fude-ln svg{display:block;width:100%;height:100%;overflow:visible}
+
+.top .mark .fude-mark{display:inline-flex;flex-direction:column}
+.top .mark .fude-name{font-family:"Yuji Syuku","Noto Serif JP",serif;font-size:19px;letter-spacing:.18em;line-height:1.2}
+.top .mark .fude-ln{display:block;width:100%;height:5px;margin-top:3px;color:var(--sumi);opacity:.8}
+@media (max-width:640px){.top .mark .fude-name{font-size:16px;letter-spacing:.12em}}
+
+/* =========================================================
+   すかし（本文）：案3＋案2＋案4（2026-11-14 決定）
+   案3 墨のにじみ＝区切り3か所に筆で引いた墨の帯。帯の中に人を白く抜く（相対→投げ→礼）。画面に入ると筆で引くように現れる
+   案2 大きく一枚＝「合気道とは」の後ろにだけ、宙で回る受けを1体（比較ページの約65%の大きさ、濃さ .045）
+   案4 鵬＝入会案内とよくある質問に1羽ずつ（入会案内は右、よくある質問は左に少し小さく）
+   文字の後ろに濃いものは置かない。動きは prefers-reduced-motion で止める（site.js 側も）
+   ========================================================= */
+main{overflow-x:hidden;overflow-x:clip}
+#aikido,#join,#faq{position:relative;isolation:isolate}
+.sumi-obi,.wm-big,.wm-ho{pointer-events:none;user-select:none;-webkit-user-drag:none}
+
+/* --- 案3 墨の帯 --- */
+.sumi-obi{
+  position:relative;height:clamp(118px,17vw,230px);overflow:hidden;
+  clip-path:inset(0 100% 0 0);transition:clip-path 2.4s cubic-bezier(.45,.05,.2,1)}
+.sumi-obi.rev{clip-path:inset(0 0 0 100%)}
+.sumi-obi.in,.no-js .sumi-obi{clip-path:inset(0 0 0 0)}
+.sumi-obi svg{display:block;width:100%;height:100%}
+.sumi-obi .obi-ink{fill:var(--kuro);fill-opacity:.13}
+.sumi-obi .obi-wash{fill:var(--kuro);fill-opacity:.07}
+.sumi-obi+.sec{padding-top:56px}
+
+/* --- 案2 大きく一枚（合気道とは） --- */
+#aikido{padding-top:130px}
+#aikido>.h2{margin-bottom:64px}
+.wm-big{position:absolute;left:50%;top:0;z-index:-1;width:min(780px,118vw);height:auto;max-width:none;margin-left:calc(min(780px,118vw) * -.47);opacity:.045}
+@media (max-width:640px){
+  #aikido{padding-top:110px}
+  .wm-big{width:112vw;margin-left:-58vw;top:44px;opacity:.04}
+}
+
+/* --- 案4 鵬（入会案内・よくある質問） --- */
+.wm-ho{position:absolute;z-index:-1;height:auto;filter:brightness(0)}
+.wm-ho.ho-join{width:clamp(100px,13vw,170px);right:calc(50% - 50vw + 6vw);top:40px;opacity:.085}
+.wm-ho.ho-faq{width:clamp(80px,10vw,128px);left:calc(50% - 50vw + 9vw);top:56px;opacity:.08}
+@media (max-width:640px){
+  .wm-ho.ho-join{width:92px;right:-10px;top:22px;opacity:.08}
+  .wm-ho.ho-faq{width:74px;left:-8px;top:30px;opacity:.075}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sumi-obi,.sumi-obi.rev{clip-path:none;transition:none}
+}
