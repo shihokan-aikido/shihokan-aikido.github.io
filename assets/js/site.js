@@ -163,6 +163,27 @@
   setD('sweep-path',stroke(40,1560,130,150,-40,5));
   setD('kin-path',stroke(10,590,22,11,-5,17));
 
+  /* ---------- 入口の円相：スマホでも押した瞬間に朱へ変わってから移る（2026-11-14） ---------- */
+  (function(){
+    var touch=window.matchMedia&&matchMedia('(hover: none)').matches;
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!touch||still)return;
+    document.querySelectorAll('.enso-gates a').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var href=a.getAttribute('href');
+        if(!href||href.charAt(0)!=='#')return;
+        e.preventDefault();
+        a.classList.add('tapped');
+        setTimeout(function(){
+          var t=document.querySelector(href);
+          if(t){var y0=window.scrollY;t.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',href);
+            setTimeout(function(){if(Math.abs(window.scrollY-y0)<2)t.scrollIntoView({block:'start'})},700)}
+          setTimeout(function(){a.classList.remove('tapped')},900);
+        },420);
+      });
+    });
+  })();
+
   /* ---------- 小見出しと道場名の墨の筆線（案1に決定・2026-11-14） ---------- */
   (function(){
     function line(x0,x1,y,wMax,bend,seed){
@@ -241,7 +262,8 @@
         dr.forEach(function(e){
           var b=e.getBoundingClientRect();if(b.bottom<-vh||b.top>2*vh)return;
           var p=Math.max(-1.2,Math.min(1.2,((b.top+b.height/2)-vh/2)/vh)),a=e.getAttribute('data-drift').split(',');
-          e.style.transform='translate('+f(-a[0]*p)+'px,'+f(a[1]*p)+'px)';
+          var sx=innerWidth<=640?0:1;/* スマホでは横に流さない（画面から見切れないように・2026-11-14） */
+          e.style.transform='translate('+f(-a[0]*p*sx)+'px,'+f(a[1]*p)+'px)';
         });
       });
     }

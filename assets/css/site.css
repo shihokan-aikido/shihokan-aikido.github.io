@@ -697,10 +697,14 @@ main{overflow-x:hidden;overflow-x:clip}
 .wm-ho.ho-join{width:clamp(100px,13vw,170px);right:calc(50% - 50vw + 6vw);top:40px;opacity:.085}
 .wm-ho.ho-faq{width:clamp(80px,10vw,128px);left:calc(50% - 50vw + 9vw);top:56px;opacity:.08}
 @media (max-width:640px){
-  .wm-ho.ho-join{width:92px;right:-10px;top:22px;opacity:.08}
-  .wm-ho.ho-faq{width:74px;left:-8px;top:30px;opacity:.075}
+  .wm-ho.ho-join{width:92px;right:12px;top:22px;opacity:.08}
+  .wm-ho.ho-faq{width:74px;left:12px;top:30px;opacity:.075}
 }
 
 @media (prefers-reduced-motion:reduce){
   .sumi-obi,.sumi-obi.rev{clip-path:none;transition:none}
 }
+
+/* ===== 入口の円相：スマホで押したとき（.tapped）も朱に（2026-11-14） ===== */
+.enso-gates a{-webkit-tap-highlight-color:transparent}
+.enso-gates a.tapped svg.ens,.enso-gates a:active svg.ens{color:var(--shu);opacity:1;transform:rotate(8deg)}
