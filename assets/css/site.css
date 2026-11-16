@@ -714,3 +714,24 @@ main{overflow-x:hidden;overflow-x:clip}
 
 /* ===== 2026-11-16 道場の外観写真（縦長）：枠を写真の形に合わせ、PCでは幅を抑えて中央に ===== */
 .ph.has-photo.gaikan{aspect-ratio:1086/1215;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* ===== 2026-11-16 ページのトップへ戻る：右下に小さな筆の円相。少しスクロールすると出る ===== */
+.totop{
+  position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:30;
+  width:60px;height:60px;display:flex;align-items:center;justify-content:center;
+  color:var(--sumi);text-decoration:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,239,228,.92) 0 56%,rgba(244,239,228,0) 72%);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s;
+  -webkit-tap-highlight-color:transparent;
+}
+.totop.show{opacity:1;visibility:visible;transform:none;transition:opacity .35s ease,transform .35s ease}
+.totop svg.ens{position:absolute;inset:0;width:100%;height:100%;opacity:.85;transition:color .3s,transform .4s ease}
+.totop .tt{position:relative;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10.5px;letter-spacing:.12em;line-height:1}
+.totop .ya{width:14px;height:8px}
+.totop:hover svg.ens,.totop:focus-visible svg.ens,.totop.tapped svg.ens{color:var(--shu);opacity:1;transform:rotate(8deg)}
+.totop:hover .tt,.totop:focus-visible .tt,.totop.tapped .tt{color:var(--shu)}
+.totop:focus-visible{outline:2px solid var(--shu);outline-offset:3px}
+@media (max-width:640px){.totop{width:52px;height:52px;right:max(12px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion:reduce){.totop,.totop.show,.totop svg.ens{transition:none}}
+@media print{.totop{display:none}}

@@ -269,4 +269,24 @@
     }
     addEventListener('scroll',drift,{passive:true});addEventListener('resize',drift);drift();
   })();
+  /* ---------- ページのトップへ戻る（筆の円相・2026-11-16） ---------- */
+  (function(){
+    var b=document.createElement('a');
+    b.href='#top';b.className='totop';b.setAttribute('aria-label','ページのいちばん上へ戻る / Back to top');
+    b.innerHTML='<svg class="ens" viewBox="0 0 1000 1000" aria-hidden="true"><path fill="currentColor" d="'+enso(500,500,400,-80*D,326*D,70,53)+'"/></svg>'
+      +'<span class="tt"><svg class="ya" viewBox="0 0 24 14" aria-hidden="true"><path d="M3 12 L12 3 L21 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      +'<span class="ja">上へ</span><span class="en">Top</span></span>';
+    document.body.appendChild(b);
+    var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      b.classList.add('tapped');setTimeout(function(){b.classList.remove('tapped')},700);
+      var y0=window.scrollY;
+      window.scrollTo({top:0,behavior:still?'auto':'smooth'});
+      setTimeout(function(){if(Math.abs(window.scrollY-y0)<2)window.scrollTo(0,0)},700);
+      if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+    });
+    function upd(){b.classList.toggle('show',window.scrollY>window.innerHeight*.8)}
+    addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  })();
 })();
