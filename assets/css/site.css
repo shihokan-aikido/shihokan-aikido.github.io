@@ -711,3 +711,6 @@ main{overflow-x:hidden;overflow-x:clip}
 
 /* ===== 指導者の写真をカラーに（2026-11-14）。稽古写真と同じく少しだけ落ち着かせる ===== */
 .sensei-img img,[data-tone~="sumi"] .sensei-img img,[data-tone~="kogo"] #instructors .sensei-img img{filter:saturate(.85) brightness(.97) contrast(.97) sepia(.04)}
+
+/* ===== 2026-11-16 道場の外観写真（縦長）：枠を写真の形に合わせ、PCでは幅を抑えて中央に ===== */
+.ph.has-photo.gaikan{aspect-ratio:1086/1215;max-width:520px;margin-left:auto;margin-right:auto}
