@@ -746,3 +746,7 @@ main{overflow-x:hidden;overflow-x:clip}
 .sensei-row .duty{font-size:14px;color:var(--sumi-soft);margin:10px 0 0}
 .sensei-row.is-sub blockquote.say{margin-top:16px}
 @media (max-width:640px){.sensei-row.is-sub .duty{text-align:center}.sensei-row.is-sub blockquote.say{align-self:stretch}}
+
+/* こどもの部の稽古写真4枚（2026-11-18）：2列×2段。スマホも2列のまま */
+.kodomo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1.6vw,14px);margin:8px 0 10px}
+.kodomo-grid .ph.has-photo{aspect-ratio:4/3}
