@@ -741,3 +741,8 @@ main{overflow-x:hidden;overflow-x:clip}
 .tbl.fee .fee-sub{white-space:normal;line-break:strict}
 @media (max-width:420px){.tbl.fee .fee-sub{font-size:11.5px;letter-spacing:.02em}}
 .tbl.fee .fee-sub .nb{display:inline-block}
+
+/* 指導員 小林（2026-11-18）：担当の一行と、ひとこと */
+.sensei-row .duty{font-size:14px;color:var(--sumi-soft);margin:10px 0 0}
+.sensei-row.is-sub blockquote.say{margin-top:16px}
+@media (max-width:640px){.sensei-row.is-sub .duty{text-align:center}.sensei-row.is-sub blockquote.say{align-self:stretch}}
