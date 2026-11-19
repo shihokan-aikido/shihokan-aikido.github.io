@@ -750,3 +750,12 @@ main{overflow-x:hidden;overflow-x:clip}
 /* こどもの部の稽古写真4枚（2026-11-18）：2列×2段。スマホも2列のまま */
 .kodomo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1.6vw,14px);margin:8px 0 10px}
 .kodomo-grid .ph.has-photo{aspect-ratio:4/3}
+/* 合気道倫理憲章：開くと読める形（2026-11-19） */
+.ethics-lead{text-align:center;margin-bottom:18px}
+.ethics-fold>summary{list-style:none;cursor:pointer;display:block;width:max-content;margin:0 auto 4px;padding:10px 40px 10px 28px;border:1px solid var(--sumi-soft);font-size:14.5px;letter-spacing:.08em;position:relative}
+.ethics-fold>summary::-webkit-details-marker{display:none}
+.ethics-fold>summary::after{content:"";position:absolute;right:18px;top:50%;width:8px;height:8px;margin-top:-6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);transition:transform .3s}
+.ethics-fold[open]>summary::after{transform:rotate(-135deg);margin-top:-2px}
+.ethics-fold .close-label,.ethics-fold[open] .open-label{display:none}
+.ethics-fold[open] .close-label{display:inline}
+.ethics-fold[open]>summary{margin-bottom:18px}
